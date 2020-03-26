@@ -96,6 +96,11 @@ var programs = Object.keys(requirements);
 
 var answers = [];
 
+function moveToReport() {
+  $("form, .hidden_options").hide();
+  $(".report").show();
+}
+
 function nextQuestion(currentQuestion) {
   var currentDiv = $(".question")[currentQuestion];
   // $(currentDiv).find(".btn, div, p, li").css({opacity: 0.4});
@@ -103,15 +108,13 @@ function nextQuestion(currentQuestion) {
 
   var nextDiv = $(".question")[currentQuestion + 1];
   if (!nextDiv) {
-    $("form").hide();
-    $(".report").show();
+    moveToReport();
   }
   while($(nextDiv).parent().css("display") === "none") {
     currentQuestion++;
     nextDiv = $(".question")[currentQuestion + 1];
     if (!nextDiv) {
-      $("form").hide();
-      $(".report").show();
+      moveToReport();
     }
   }
 
