@@ -5,7 +5,8 @@ var nonprofit_q = 11,
     required_no: [3, 14],
     eval: {
       8: function (fte) {
-        return Number(fte) >= 2 && Number(fte) <= 10;
+        fte = Number(fte.replace(/\,|\$/g, ''));
+        return fte >= 2 && fte <= 10;
       },
       12: function (naics_code) {
         naics_code = String(naics_code).trim();
@@ -30,7 +31,8 @@ var nonprofit_q = 11,
     required_no: [3, 14],
     eval: {
       9: function (revenue) {
-        return Number(revenue) < 5000000;
+        revenue = Number(revenue.replace(/\,|\$/g, ''));
+        return revenue < 5000000;
       },
       11: function (val) {
         return (val === true) || (answers[nonprofit_q] === false);
@@ -48,7 +50,8 @@ var nonprofit_q = 11,
     required_no: [3, 14],
     eval: {
       9: function (revenue) {
-        return Number(revenue) < 5000000;
+        revenue = Number(revenue.replace(/\,|\$/g, ''));
+        return revenue < 5000000;
       },
       11: function (val) {
         return (val === true) || (answers[nonprofit_q] === false);
@@ -66,10 +69,12 @@ var nonprofit_q = 11,
     required_no: [314],
     eval: {
       8: function (fte) {
+        fte = Number(fte.replace(/\,|\$/g, ''));
         return fte < 25;
       },
       10: function (revenue) {
-        return Number(revenue) < 5000000;
+        revenue = Number(revenue.replace(/\,|\$/g, ''));
+        return revenue < 5000000;
       }
     }
   },
@@ -160,39 +165,56 @@ $(".question").each(function(index) {
 
   var sheet_original_index = q.id.match(/\d+/)[0] * 1;
 
-  // YES button
+  // YES / ENTER button
   $(q).find('.btn-primary').click(function(e) {
     e.preventDefault();
     answers[sheet_original_index] = true;
 
-    if (sheet_original_index === 14) { // NJ illegal business
-      hardPass();
+    if (sheet_original_index === 2) { // physically in NJ
+      $('.physical_nj').show();
+      $('.not_in_nj').hide();
+    }
+    if (sheet_original_index === 8) { // how many FTE
+      answers[sheet_original_index] = 1 * $("input[name='fte']").val();
+    }
+    if (sheet_original_index === 9) { // 2019 revenue
+      answers[sheet_original_index] = 1 * $("input[name='2019_revenue']").val();
+    }
+    if (sheet_original_index === 10) { // YTD 12-month revenue
+      answers[sheet_original_index] = 1 * $("input[name='12mo_revenue']").val();
     }
     if (sheet_original_index === 11) { // nonprofit
       $('.for-profit').hide();
       $('.non-profit').show();
     }
-    if (sheet_original_index === 2) { // physically in NJ
-      $('.physical_nj').show();
-      $('.not_in_nj').hide();
+    if (sheet_original_index === 12) { // NAICS
+      answers[sheet_original_index] = $("input[name='12mo_revenue']").val();
+    }
+    if (sheet_original_index === 14) { // NJ illegal business
+      hardPass();
     }
 
     $(q).find(".answered").css({ color: "#888" });
     $(q).find(".btn").css({ border: "none" });
-    $(e.target).css({ border: "3px solid #000" });
+    $(e.target).css({ border: "3px solid orange" });
 
     nextQuestion(index);
     return false;
   });
 
-  // NOT SURE button (pre-emptive YES)
+  // NOT SURE / SKIP button (pre-emptive YES)
   $(q).find('.btn.not-sure').click(function(e) {
     e.preventDefault();
     answers[sheet_original_index] = -1;
 
+    // numeric answers going back to not sure / skip
+    if ([8, 9, 10, 12].includes(sheet_original_index)) {
+      answers[sheet_original_index] = undefined;
+    }
+
     $(q).find(".answered").css({ color: "#888" });
     $(q).find(".btn").css({ border: "none" });
-    $(e.target).css({ border: "3px solid #000" });
+    $(e.target).css({ border: "3px solid orange" });
 
     nextQuestion(index);
     return false;
@@ -217,7 +239,7 @@ $(".question").each(function(index) {
 
     $(q).find(".answered").css({ color: "#888" });
     $(q).find(".btn").css({ border: "none" });
-    $(e.target).css({ border: "3px solid #000" });
+    $(e.target).css({ border: "3px solid orange" });
 
     nextQuestion(index);
     return false;
