@@ -78,7 +78,7 @@ var answers = [];
 
 function nextQuestion(currentQuestion) {
   var currentDiv = $(".question")[currentQuestion];
-  $(currentDiv).find(".btn, div, p, li").css({opacity: 0.4});
+  // $(currentDiv).find(".btn, div, p, li").css({opacity: 0.4});
   // $(currentDiv).find('.btn').prop('disabled', true);
 
   var nextDiv = $(".question")[currentQuestion + 1];
@@ -170,4 +170,12 @@ $(".question").each(function(index) {
     nextQuestion(index);
     return false;
   });
+});
+
+$(window).scroll(function() {
+  if ((window.pageYOffset || window.scrollY) > $(".fixed_marker").offset().top) {
+    $('.my_options, .hidden_options').addClass('scrollme');
+  } else {
+    $('.my_options, .hidden_options').removeClass('scrollme');
+  }
 });

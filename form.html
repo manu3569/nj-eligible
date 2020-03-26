@@ -43,10 +43,28 @@ table {
   left: -30px;
   font-size: 40pt;
   display: none;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
-.question.unmute p, .question.unmute li, .question.unmute .btn, .question.unmute div, {
-  opacity: 1;
+.my_options {
+  background: #eee;
+}
+.my_options ul {
+  width: 40%;
+  margin-right: 5%;
+  display: inline-block;
+  vertical-align: top;
+}
+.my_options.scrollme {
+  position: fixed;
+  top: 0;
+  z-index: 999;
+}
+.hidden_options {
+  display: none;
+}
+.hidden_options.scrollme {
+  display: block;
+  visibility: hidden;
 }
     </style>
   </head>
@@ -58,10 +76,11 @@ table {
             The NJEDA Emergency Grant Wizard
             <small>helps determine which programs are designed for your business</small>
           </h4>
-          <p>
-            Disclaimer:
-          </p>
-          <p>
+          <span class="fixed_marker"></span>
+          <div class="my_options">
+            <p>
+              Disclaimer:
+            </p>
             <ul>
               <li id="eag">Emergency Assistance Grant Program</li>
               <li id="eawcl">Emergency Assistance 0% Working Capital Loan Program</li>
@@ -69,12 +88,29 @@ table {
               <li id="egp">Entrepreneur Guarantee Program</li>
               <li id="eidl">Federal SBA EIDL Loans</li>
               <li id="frelief">Financial relief on your existing NJEDA loan obligations</li>
-              <hr/>
+            </ul>
+            <ul>
               <li id="cdfi">Loans from a CDFI</li>
-              or<br/>
               <li id="bank">Financing from a private bank</li>
             </ul>
-          </p>
+          </div>
+          <div class="hidden_options">
+            <p>
+              Disclaimer:
+            </p>
+            <ul>
+              <li id="eag">Emergency Assistance Grant Program</li>
+              <li id="eawcl">Emergency Assistance 0% Working Capital Loan Program</li>
+              <li id="guarantee">Emergency Assistance Guarantee Program</li>
+              <li id="egp">Entrepreneur Guarantee Program</li>
+              <li id="eidl">Federal SBA EIDL Loans</li>
+              <li id="frelief">Financial relief on your existing NJEDA loan obligations</li>
+            </ul>
+            <ul>
+              <li id="cdfi">Loans from a CDFI</li>
+              <li id="bank">Financing from a private bank</li>
+            </ul>
+          </div>
           <form class="form">
             <div id="q1" class="question">
               <span class="answered">‣</span>
@@ -109,7 +145,7 @@ table {
               <span class="answered">‣</span>
               <p>
                 Is your business considered one of the following:
-                (This question is to determine eligibility for State programs)
+                <span class="badge badge-success">NJ State Programs</span>
                 <ul>
                   <li>Related to gambling or gaming activities</li>
                   <li>Related to the purveyance of “adult” (i.e., pornographic, lewd, prurient, obscene) activities, services, products or materials (including nude or semi-nude performances or the sale of sexual aids or devices);</li>
@@ -132,8 +168,7 @@ table {
               <span class="answered">‣</span>
               <p>
                 Is your business considered one of the following:
-                (This question is to determine eligibility for Federal Small Business
-                Administration programs)
+                <span class="badge badge-success">Federal SBA EIDL Loans</span>
                 <ul>
                   <li>Related to gambling or gaming activities</li>
                   <li>Agricultural Enterprises (i.e. the primary activity of the business, including its affiliates, is as defined in Section 18(b)(1) of the Small Business Act)</li>
@@ -157,6 +192,7 @@ table {
               <p>
                 Is your business home-based?
               </p>
+              <span class="badge badge-success">Entrepreneur Guarantee Program</span>
               <button class="btn btn-primary">
                 Yes
               </button>
@@ -178,12 +214,20 @@ table {
               </button>
             </div>
 
+            <div class="for-profit">
               <div id="q19" class="question">
                 <span class="answered">‣</span>
                 <p>
                   If you are a for-profit business, would all owners with more than 10% ownership in the company be willing to provide a personal guarantees for any emergency loans?
                 </p>
+                <button class="btn btn-primary">
+                  Yes
+                </button>
+                <button class="btn btn-dark">
+                  No
+                </button>
               </div>
+            </div>
 
             <div id="q2" class="question">
               <span class="answered">‣</span>
@@ -200,6 +244,7 @@ table {
               </button>
             </div>
 
+            <div class="physical-nj">
               <div id="q6" class="question">
                 <span class="answered">‣</span>
                 <p>
@@ -213,6 +258,7 @@ table {
                   No
                 </button>
               </div>
+            </div>
 
               <div id="q5" class="question">
                 <span class="answered">‣</span>
@@ -350,6 +396,16 @@ table {
               <p>
                 Do you or your business have a minimum FICO score of at least 600?
               </p>
+              <button class="btn btn-primary">
+                Yes
+              </button>
+              <button class="btn btn-info">
+                Not Sure
+              </button>
+              <button class="btn btn-dark">
+                No
+              </button>
+
             </div>
 
             <div id="q20" class="question">
