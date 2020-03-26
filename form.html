@@ -72,7 +72,15 @@ input.form-control {
   margin: 20px;
   width: 50%;
 }
-
+.report-filler {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  border: 1px solid #000;
+  text-align: center;
+}
+.report h4 {
+  margin-top: 35px;
+}
 .yes-print {
   display: none;
 }
@@ -436,8 +444,9 @@ input.form-control {
               <span class="answered">‣</span>
               <p>
                 Are you able to get a Tax Clearance Certificate from the New Jersey
-                Department of Treasury? (Click here to check for information on how
-                to check your tax clearance status).
+                Department of Treasury?
+                <!-- (Click here to check for information on how
+                to check your tax clearance status). -->
               </p>
               <button class="btn btn-primary">
                 Yes
@@ -488,178 +497,192 @@ input.form-control {
                 No
               </button>
             </div>
+
+            <h4 class="report-filler">After you answer all questions, a printable guide
+            will appear here.</h4>
           </form>
 
-          <h3>Based upon your feedback, you may be eligible for the following New Jersey programs:</h3>
-          <button class="btn btn-success no-print" onclick="window.print()">
-            Print this report
-          </button>
+          <div class="report">
 
-          <div class="eag">
-            <h4>Small Business Emergency Assistance Grant Program</h4>
-            <p>
-              <strong>Description:</strong>
-              An operating expense grant for NJ-based businesses or non-profits
-              with 1-10 full time employees in the retail/accommodation/food
-              service/arts/entertainment/recreation/service industries.
-            </p>
-            <p>
-              <strong>Eligible Uses:</strong>
-              Operating expense support to help stabilize operations and reduce furloughs
-              or layoffs for companies that can demonstrate they have been adversely
-              impacted by the Covid-19 emergency.
-            </p>
-            <p>
-              <strong>Available Funding:</strong>
-              $1K per full-time employee, up to $5,000.
-              Learn more here <span class="yes-print">:</span>
-            </p>
-          </div>
+            <h3>Based upon your feedback, you may be eligible for the following New Jersey programs:</h3>
+            <button class="btn btn-success no-print" onclick="window.print()">
+              Print this report
+            </button>
+            <button class="btn btn-info no-print" onclick="window.location.reload()">
+              Start over
+            </button>
+            <br/>
+            <br/>
+            <div class="eag">
+              <h4>Small Business Emergency Assistance Grant Program</h4>
+              <p>
+                <strong>Description:</strong>
+                An operating expense grant for NJ-based businesses or non-profits
+                with 1-10 full time employees in the retail/accommodation/food
+                service/arts/entertainment/recreation/service industries.
+              </p>
+              <p>
+                <strong>Eligible Uses:</strong>
+                Operating expense support to help stabilize operations and reduce furloughs
+                or layoffs for companies that can demonstrate they have been adversely
+                impacted by the Covid-19 emergency.
+              </p>
+              <p>
+                <strong>Available Funding:</strong>
+                $1K per full-time employee, up to $5,000.
+                Learn more here <span class="yes-print">:</span>
+              </p>
+            </div>
 
-          <div class="eawcl">
-            <h4>Emergency Zero Percent Loan Program</h4>
-            <p>
-              <strong>Description:</strong>
-              A no/low-cost loan for up to 10 years
-              for NJ-based businesses with under $5M in revenue.
-            </p>
-            <p>
-              <strong>Eligible Uses:</strong>
-              Supports business continuity to help stabilize operations and reduce furloughs or layoffs
-              for companies that can demonstrate they have been adversely impacted by the Covid-19 emergency.
-            </p>
-            <p>
-              <strong>Available Funding:</strong>
-              Up to $100,000 of working capital loans for up to 10 years. 0% interest for years 1-5;
-              1-2% for years 6-10.
-            </p>
-            <strong>Learn more here</strong> <span class="yes-print">:</span>
-          </div>
-          <div class="guarantee">
-            <h4>Emergency Assistance Guarantee Program</h4>
-            <p>
-              <strong>Description:</strong>
-              This program is supported by NJEDA but administered by Premier Lenders or Community
-               Development Finance Institutions. This program provides a guarantee to Premier Lenders or Premier
-               CDFIs that will issue working capital loans or letters of credit to support business continuity for a range
-               of COVID-19 related impacts to businesses (reduced revenue, employee shortage, supply chain impact,
-               etc.)
-            </p>
-            <p>
-              <strong>Eligible Uses:</strong>
-              You are eligible for this program if you are negatively impacted by COVID-19, have less than
-              $5M in revenue and have been in business for at least one year.
-            </p>
-            <p>
-              <strong>Available Funding:</strong>
-              Benefits include a 50% guarantee of working capital loans, with eligibility for up to a
-              $100K working capital loan; the program can provide up to $10 million in total.
-            </p>
-          </div>
-          <div class="egp">
-            <h4>Start-up Entrepreneur Guarantee Program</h4>
-            <p>
-              <strong>Description:</strong>
-              Program provides 80% loan guarantees for working capital loans to start-up entrepreneurs,
-              encouraging private capital to flow to start-up companies and providing positive reinforcement to a
-              cautious investor marketplace.
-            </p>
-            <p>
-              <strong>Eligible Uses:</strong>
-              You are eligible for this program if you have under $5 million in revenue, employ less than 25
-              employees, and have an investor with equity interest and position in the company.
-            </p>
-            <p>
-              <strong>Available Funding:</strong>
-              There is a $200,000 company exposure cap, with up to $5 million available.
-            </p>
-          </div>
-          <div class="eidl">
-            <h4>Small Business Administration (SBA) Emergency Injury Disaster Loans</h4>
-            <p>
-              <strong>Description:</strong>
-              Provides low-interest federal disaster loans for working capital to small businesses suffering
-            substantial economic injury as a result of the Coronavirus (COVID-19).
-            </p>
-            <p>
-              <strong>Eligibility:</strong>
-               Businesses must have a physical presence in the declared disaster area (note: all of NJ has been
-              declared a disaster area)
-               Eligibility for these working capital loans are based on the size and type of business and its
-              financial resources.
-            </p>
-            <p>
-              <strong>Availability:</strong>
-              Loans are administered by the federal government. Businesses are advised to submit
-              applications as soon as possible.
-            </p>
-          </div>
-          <div class="frelief">
-            <h4>NJEDA Payment Moratorium/Loan Fee Forgiveness</h4>
-            <p>
-              <strong>Description:</strong>
-              A series of steps to support existing NJEDA business customers, including a 3-month
-            payment moratorium, waived late fees on loan repayments late fees and/or loan modification fees, and
-            allowing collateral releases, subordinations and substitutions on business assets.
-            </p>
-            <p>
-              <strong>Eligibility:</strong>
-            - Are able to demonstrate negative impact related to COVID-19 on or after March 9th, 2020
-            - Are not in active litigation with NJEDA
-            - Have not been delinquent on your existing loan for 120 days
-            </p>
-            <p>
-              <strong>Availability:</strong> Current NJEDA business customers.
-              Existing NJEDA business customers should reach out to their Servicing Officer for more information.
-            </p>
-          </div>
-          <div class="cdfi">
-            <h4>Loans from a CDFI</h4>
-          </div>
-          <div class="bank">
-            <h4>Financing from a private bank</h4>
-          </div>
+            <div class="eawcl">
+              <h4>Emergency Zero Percent Loan Program</h4>
+              <p>
+                <strong>Description:</strong>
+                A no/low-cost loan for up to 10 years
+                for NJ-based businesses with under $5M in revenue.
+              </p>
+              <p>
+                <strong>Eligible Uses:</strong>
+                Supports business continuity to help stabilize operations and reduce furloughs or layoffs
+                for companies that can demonstrate they have been adversely impacted by the Covid-19 emergency.
+              </p>
+              <p>
+                <strong>Available Funding:</strong>
+                Up to $100,000 of working capital loans for up to 10 years. 0% interest for years 1-5;
+                1-2% for years 6-10.
+              </p>
+              <strong>Learn more here</strong> <span class="yes-print">:</span>
+            </div>
+            <div class="guarantee">
+              <h4>Emergency Assistance Guarantee Program</h4>
+              <p>
+                <strong>Description:</strong>
+                This program is supported by NJEDA but administered by Premier Lenders or Community
+                 Development Finance Institutions. This program provides a guarantee to Premier Lenders or Premier
+                 CDFIs that will issue working capital loans or letters of credit to support business continuity for a range
+                 of COVID-19 related impacts to businesses (reduced revenue, employee shortage, supply chain impact,
+                 etc.)
+              </p>
+              <p>
+                <strong>Eligible Uses:</strong>
+                You are eligible for this program if you are negatively impacted by COVID-19, have less than
+                $5M in revenue and have been in business for at least one year.
+              </p>
+              <p>
+                <strong>Available Funding:</strong>
+                Benefits include a 50% guarantee of working capital loans, with eligibility for up to a
+                $100K working capital loan; the program can provide up to $10 million in total.
+              </p>
+            </div>
+            <div class="egp">
+              <h4>Start-up Entrepreneur Guarantee Program</h4>
+              <p>
+                <strong>Description:</strong>
+                Program provides 80% loan guarantees for working capital loans to start-up entrepreneurs,
+                encouraging private capital to flow to start-up companies and providing positive reinforcement to a
+                cautious investor marketplace.
+              </p>
+              <p>
+                <strong>Eligible Uses:</strong>
+                You are eligible for this program if you have under $5 million in revenue, employ less than 25
+                employees, and have an investor with equity interest and position in the company.
+              </p>
+              <p>
+                <strong>Available Funding:</strong>
+                There is a $200,000 company exposure cap, with up to $5 million available.
+              </p>
+            </div>
+            <div class="eidl">
+              <h4>Small Business Administration (SBA) Emergency Injury Disaster Loans</h4>
+              <p>
+                <strong>Description:</strong>
+                Provides low-interest federal disaster loans for working capital to small businesses suffering
+              substantial economic injury as a result of the Coronavirus (COVID-19).
+              </p>
+              <p>
+                <strong>Eligibility:</strong>
+                 Businesses must have a physical presence in the declared disaster area (note: all of NJ has been
+                declared a disaster area)
+                 Eligibility for these working capital loans are based on the size and type of business and its
+                financial resources.
+              </p>
+              <p>
+                <strong>Availability:</strong>
+                Loans are administered by the federal government. Businesses are advised to submit
+                applications as soon as possible.
+              </p>
+            </div>
+            <div class="frelief">
+              <h4>NJEDA Payment Moratorium/Loan Fee Forgiveness</h4>
+              <p>
+                <strong>Description:</strong>
+                A series of steps to support existing NJEDA business customers, including a 3-month
+              payment moratorium, waived late fees on loan repayments late fees and/or loan modification fees, and
+              allowing collateral releases, subordinations and substitutions on business assets.
+              </p>
+              <p>
+                <strong>Eligibility:</strong>
+              - Are able to demonstrate negative impact related to COVID-19 on or after March 9th, 2020
+              - Are not in active litigation with NJEDA
+              - Have not been delinquent on your existing loan for 120 days
+              </p>
+              <p>
+                <strong>Availability:</strong> Current NJEDA business customers.
+                Existing NJEDA business customers should reach out to their Servicing Officer for more information.
+              </p>
+            </div>
+            <div class="cdfi">
+              <h4>Loans from a CDFI</h4>
+            </div>
+            <div class="bank">
+              <h4>Financing from a private bank</h4>
+            </div>
 
 
 
-<!-- 5. Premier Lender Loan
-Description: This is the NJEDA’s partnership with banks to overcome the financial obstacles that can stall
-the growth and expansion of NJ-based businesses and not-for-profits.
-Eligibility:
- Be in operation for at least two full years.
- Commit to creation or retention of one new, full-time job for every $65,000 of NJEDA exposure
-within two years.
- 1.1X Debt Service Coverage Ratio (for businesses); 1.0X Debt Service Coverage Ratio (for not-for-
-profits).
- 100% loan-to-value for real estate and 90% for equipment
-Available Funding:
- Up to $2 million loan participation or $1.5 million loan guarantee for fixed assets;
- Up to $750,000 loan participation or $1.5 million loan guarantee for term working capital;
- Up to $750,000 line of credit guarantee
-Learn more here
+  <!-- 5. Premier Lender Loan
+  Description: This is the NJEDA’s partnership with banks to overcome the financial obstacles that can stall
+  the growth and expansion of NJ-based businesses and not-for-profits.
+  Eligibility:
+   Be in operation for at least two full years.
+   Commit to creation or retention of one new, full-time job for every $65,000 of NJEDA exposure
+  within two years.
+   1.1X Debt Service Coverage Ratio (for businesses); 1.0X Debt Service Coverage Ratio (for not-for-
+  profits).
+   100% loan-to-value for real estate and 90% for equipment
+  Available Funding:
+   Up to $2 million loan participation or $1.5 million loan guarantee for fixed assets;
+   Up to $750,000 loan participation or $1.5 million loan guarantee for term working capital;
+   Up to $750,000 line of credit guarantee
+  Learn more here
 
-6. Micro Business Loan Program
-Description: A pilot program designed to ensure that financing is accessible to early-stage and micro
-businesses. Established to fill the gap in NJEDA’s suite of resources by offering low-cost financing
-options.
-Eligibility:
- Must have annual revenues in most recent fiscal year of less than $1,500,000.
- At time of application, business must have less than 10 FTEs in total. All employees must work in
-New Jersey.
- If the business is a startup, they must demonstrate completion of an entrepreneurship training
-program or Small Business Development Center counseling sessions.
-Available Funding: Up to $50,000 funds available for Working capital, or to purchase equipment.
+  6. Micro Business Loan Program
+  Description: A pilot program designed to ensure that financing is accessible to early-stage and micro
+  businesses. Established to fill the gap in NJEDA’s suite of resources by offering low-cost financing
+  options.
+  Eligibility:
+   Must have annual revenues in most recent fiscal year of less than $1,500,000.
+   At time of application, business must have less than 10 FTEs in total. All employees must work in
+  New Jersey.
+   If the business is a startup, they must demonstrate completion of an entrepreneurship training
+  program or Small Business Development Center counseling sessions.
+  Available Funding: Up to $50,000 funds available for Working capital, or to purchase equipment.
 
-7. Small Business fund
-Description: Provides financial assistance to qualified businesses through direct loans, participations or
-guarantees with a fixed interest rate.
-Eligibility: Small businesses in operation for at least 1 full year and not-for-profits for at least 3 full years.
-Availability: Small businesses: up to $500,000; Not-for-profits up to $500,000 with 1.0x historical debt
-service coverage. -->
+  7. Small Business fund
+  Description: Provides financial assistance to qualified businesses through direct loans, participations or
+  guarantees with a fixed interest rate.
+  Eligibility: Small businesses in operation for at least 1 full year and not-for-profits for at least 3 full years.
+  Availability: Small businesses: up to $500,000; Not-for-profits up to $500,000 with 1.0x historical debt
+  service coverage. -->
+            <br/><br/>
 
-          <button class="btn btn-success no-print" onclick="window.print()">
-            Print this report
-          </button>
+            <button class="btn btn-success no-print" onclick="window.print()">
+              Print this report
+            </button>
+            <button class="btn btn-info no-print" onclick="window.location.reload()">
+              Start over
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -685,7 +708,7 @@ service coverage. -->
             </p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary" onclick="window.location.reload()">Restart</button>
+            <button type="button" class="btn btn-primary" onclick="window.location.reload()">Start over</button>
             <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
           </div>
         </div>
