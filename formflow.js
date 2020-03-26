@@ -1,7 +1,7 @@
 var nonprofit_q = 11,
     requirements = {
   eag: {
-    required_yes: [1, 2, 16, 17, 20, 21, 22],
+    required_yes: [1, 2, 16, 17, 20],
     required_no: [3, 14],
     eval: {
       8: function (fte) {
@@ -26,7 +26,7 @@ var nonprofit_q = 11,
     }
   },
   eawcl: {
-    required_yes: [1, 2, 7, 16, 17, 20, 21, 22],
+    required_yes: [1, 2, 7, 16, 17, 20],
     required_no: [3, 14],
     eval: {
       9: function (revenue) {
@@ -44,7 +44,7 @@ var nonprofit_q = 11,
     }
   },
   guarantee: {
-    required_yes: [1, 2, 7, 16, 17, 20, 21, 22],
+    required_yes: [1, 2, 7, 16, 17, 20],
     required_no: [3, 14],
     eval: {
       9: function (revenue) {
@@ -134,9 +134,9 @@ function nextQuestion(currentQuestion) {
     });
 
     if (muteProgram) {
-      $("#" + pcode).css({ opacity: 0.4 });
+      $("." + pcode).css({ opacity: 0.4 }).addClass("no-print");
     } else {
-      $("#" + pcode).css({ opacity: 1 });
+      $("." + pcode).css({ opacity: 1 }).removeClass("no-print");
     }
   });
 }
@@ -224,12 +224,14 @@ $(".question").each(function(index) {
   });
 });
 
-function scrolledStuff() {
-  if ((window.pageYOffset || window.scrollY) > $(".fixed_marker").offset().top) {
-    $('.my_options, .hidden_options').addClass('scrollme');
-  } else {
-    $('.my_options, .hidden_options').removeClass('scrollme');
+if (window.location.href.includes("scroll")) {
+  function scrolledStuff() {
+    if ((window.pageYOffset || window.scrollY) > $(".fixed_marker").offset().top) {
+      $('.my_options, .hidden_options').addClass('scrollme');
+    } else {
+      $('.my_options, .hidden_options').removeClass('scrollme');
+    }
   }
+  $(window).scroll(scrolledStuff);
+  scrolledStuff(); // on page load
 }
-$(window).scroll(scrolledStuff);
-scrolledStuff(); // on page load
