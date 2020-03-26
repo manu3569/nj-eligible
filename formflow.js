@@ -1,4 +1,5 @@
-var requirements = {
+var nonprofit_q = 11,
+    requirements = {
   eag: {
     required_yes: [1, 2, 16, 17, 20, 21, 22],
     required_no: [3, 14],
@@ -16,8 +17,12 @@ var requirements = {
         }
         return false;
       },
-      // 11: yes or not a non-profit
-      // 18: yes or not sure
+      11: function (val) {
+        return (val === true) || (answers[nonprofit_q] === false);
+      },
+      18: function (val) {
+        return (val === true) || (val === -1); // yes or not sure
+      }
     }
   },
   eawcl: {
@@ -26,11 +31,16 @@ var requirements = {
     eval: {
       9: function (revenue) {
         return Number(revenue) < 5000000;
+      },
+      11: function (val) {
+        return (val === true) || (answers[nonprofit_q] === false);
+      },
+      18: function (val) {
+        return (val === true) || (val === -1); // yes or not sure
+      },
+      19: function (val) {
+        return (val === true) || (answers[nonprofit_q] === true);
       }
-      // 11: yes or not a non-profit
-      // 18: yes or not sure
-      // 19: yes or IS a non-profit
-
     }
   },
   guarantee: {
@@ -39,11 +49,16 @@ var requirements = {
     eval: {
       9: function (revenue) {
         return Number(revenue) < 5000000;
+      },
+      11: function (val) {
+        return (val === true) || (answers[nonprofit_q] === false);
+      },
+      18: function (val) {
+        return (val === true) || (val === -1); // yes or not sure
+      },
+      19: function (val) {
+        return (val === true) || (answers[nonprofit_q] === true);
       }
-      // 11: yes or not a non-profit
-      // 18: yes or not sure
-      // 19: yes or IS a non-profit
-
     }
   },
   egp: {
@@ -79,11 +94,16 @@ var answers = [];
 function nextQuestion(currentQuestion) {
   var currentDiv = $(".question")[currentQuestion];
   // $(currentDiv).find(".btn, div, p, li").css({opacity: 0.4});
-  // $(currentDiv).find('.btn').prop('disabled', true);
+  // $(currentDiv).find('.btn, input').prop('disabled', true);
 
   var nextDiv = $(".question")[currentQuestion + 1];
+  while($(nextDiv).parent().css("display") === "none") {
+    currentQuestion++;
+    nextDiv = $(".question")[currentQuestion + 1];
+  }
+
   $(nextDiv).find(".btn, div, p, li").css({opacity: 1});
-  $(nextDiv).find('.btn').prop('disabled', false);
+  $(nextDiv).find('.btn, input').prop('disabled', false);
   $(nextDiv).find('.answered').css({ display: "block" });
 
   programs.forEach(function(pcode) {
@@ -130,7 +150,7 @@ $(".question").each(function(index) {
   var q = this;
   if (index) {
     $(q).find('.btn, div, p, li').css({opacity: 0.4});
-    $(q).find('.btn').prop('disabled', true);
+    $(q).find('.btn, input').prop('disabled', true);
   } else {
     $(q).find('.answered').css({ display: "block" });
   }
@@ -140,12 +160,21 @@ $(".question").each(function(index) {
 
   var sheet_original_index = q.id.match(/\d+/)[0] * 1;
 
+  // YES button
   $(q).find('.btn-primary').click(function(e) {
     e.preventDefault();
     answers[sheet_original_index] = true;
 
-    if (sheet_original_index === 14) {
+    if (sheet_original_index === 14) { // NJ illegal business
       hardPass();
+    }
+    if (sheet_original_index === 11) { // nonprofit
+      $('.for-profit').hide();
+      $('.non-profit').show();
+    }
+    if (sheet_original_index === 2) { // physically in NJ
+      $('.physical_nj').show();
+      $('.not_in_nj').hide();
     }
 
     $(q).find(".answered").css({ color: "#888" });
@@ -155,6 +184,21 @@ $(".question").each(function(index) {
     nextQuestion(index);
     return false;
   });
+
+  // NOT SURE button (pre-emptive YES)
+  $(q).find('.btn.not-sure').click(function(e) {
+    e.preventDefault();
+    answers[sheet_original_index] = -1;
+
+    $(q).find(".answered").css({ color: "#888" });
+    $(q).find(".btn").css({ border: "none" });
+    $(e.target).css({ border: "3px solid #000" });
+
+    nextQuestion(index);
+    return false;
+  });
+
+  // NO button
   $(q).find('.btn-dark').click(function(e) {
     e.preventDefault();
     answers[sheet_original_index] = false;
@@ -162,6 +206,14 @@ $(".question").each(function(index) {
     if (sheet_original_index === 1) {
       hardPass();
     }
+    if (sheet_original_index === 11) { // for-profit
+      $('.for-profit').show();
+      $('.non-profit').hide();
+    }
+    if (sheet_original_index === 2) { // not physically in NJ
+      $('.physical_nj').hide();
+      $('.not_in_nj').show();
+    }
 
     $(q).find(".answered").css({ color: "#888" });
     $(q).find(".btn").css({ border: "none" });
@@ -172,10 +224,12 @@ $(".question").each(function(index) {
   });
 });
 
-$(window).scroll(function() {
+function scrolledStuff() {
   if ((window.pageYOffset || window.scrollY) > $(".fixed_marker").offset().top) {
     $('.my_options, .hidden_options').addClass('scrollme');
   } else {
     $('.my_options, .hidden_options').removeClass('scrollme');
   }
-});
+}
+$(window).scroll(scrolledStuff);
+scrolledStuff(); // on page load
