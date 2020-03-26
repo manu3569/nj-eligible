@@ -1,11 +1,17 @@
+function parseNumber(num) {
+  return Number(
+    String(fte).replace(/\,|\$/g, '')
+  );
+}
+
 var nonprofit_q = 11,
     requirements = {
-  eag: {
-    required_yes: [1, 2, 16, 17, 20],
+  eag: { // Emergency Assistance Grant
+    required_yes: [1, 2, 16, 17, 20, 21, 22],
     required_no: [3, 14],
     eval: {
       8: function (fte) {
-        fte = Number(fte.replace(/\,|\$/g, ''));
+        fte = parseNumber(fte);
         return fte >= 1 && fte <= 10;
       },
       12: function (naics_code) {
@@ -26,12 +32,12 @@ var nonprofit_q = 11,
       }
     }
   },
-  eawcl: {
-    required_yes: [1, 2, 7, 16, 17, 20],
+  eawcl: { // Emergency Assistance 0% Working Capital
+    required_yes: [1, 2, 7, 16, 17, 20, 21, 22],
     required_no: [3, 14],
     eval: {
       9: function (revenue) {
-        revenue = Number(revenue.replace(/\,|\$/g, ''));
+        revenue = parseNumber(revenue);
         return revenue < 5000000;
       },
       11: function (val) {
@@ -45,12 +51,12 @@ var nonprofit_q = 11,
       }
     }
   },
-  guarantee: {
-    required_yes: [1, 2, 7, 16, 17, 20],
+  guarantee: { // Emergency Assistance Guarantee
+    required_yes: [1, 2, 7, 16, 17, 20, 21, 22],
     required_no: [3, 14],
     eval: {
       9: function (revenue) {
-        revenue = Number(revenue.replace(/\,|\$/g, ''));
+        revenue = parseNumber(revenue);
         return revenue < 5000000;
       },
       11: function (val) {
@@ -64,33 +70,59 @@ var nonprofit_q = 11,
       }
     }
   },
-  egp: {
+  egp: { // Entrepreneur Guarantee
     required_yes: [1, 4, 5, 6, 13, 17],
-    required_no: [314],
+    required_no: [3, 14],
     eval: {
       8: function (fte) {
-        fte = Number(fte.replace(/\,|\$/g, ''));
+        fte = parseNumber(fte);
         return fte < 25;
       },
       10: function (revenue) {
-        revenue = Number(revenue.replace(/\,|\$/g, ''));
+        revenue = parseNumber(revenue);
         return revenue < 5000000;
       }
     }
   },
-  eidl: {
+  eidl: { // SBA EIDL
     required_yes: [6, 7],
     required_no: [3, 15]
   },
-  frelief: {
+  frelief: { // NJ EDA relief
     required_yes: [0]
   },
-  // cdfi: {
-  //
-  // },
-  // bank: {
-  //
-  // }
+  cdfi: {
+    eval: {
+      8: function (fte) {
+        fte = parseNumber(fte);
+        return fte < 20;
+      },
+      9: function (revenue) {
+        revenue = parseNumber(revenue);
+        return revenue < 1000000;
+      },
+      10: function (revenue) {
+        revenue = parseNumber(revenue);
+        return revenue < 1000000;
+      }
+    }
+  },
+  bank: {
+    eval: {
+      8: function (fte) {
+        fte = parseNumber(fte);
+        return fte < 20;
+      },
+      9: function (revenue) {
+        revenue = parseNumber(revenue);
+        return revenue < 1000000;
+      },
+      10: function (revenue) {
+        revenue = parseNumber(revenue);
+        return revenue < 1000000;
+      }
+    }
+  }
 };
 var programs = Object.keys(requirements);
 
@@ -197,15 +229,20 @@ $(document).ready(function() {
       if (sheet_original_index === 10) { // YTD 12-month revenue
         answers[sheet_original_index] = 1 * $("input[name='12mo_revenue']").val();
       }
-      if (sheet_original_index === 11) { // nonprofit
+      if (sheet_original_index === 11) { // nonprofit detail button
         $('.for-profit').hide();
-        $('.non-profit').show();
       }
       if (sheet_original_index === 12) { // NAICS
         answers[sheet_original_index] = $("input[name='12mo_revenue']").val();
       }
+      if (sheet_original_index === 13) { // entrepreneur
+        $('.entrepreneur').show();
+      }
       if (sheet_original_index === 14) { // NJ illegal business
         hardPass();
+      }
+      if (sheet_original_index === 110) { // for-profit or non-profit
+        $('.non-profit').hide();
       }
 
       $(q).find(".answered").css({ color: "#888" });
@@ -239,16 +276,21 @@ $(document).ready(function() {
       e.preventDefault();
       answers[sheet_original_index] = false;
 
-      if (sheet_original_index === 1) {
+      if (sheet_original_index === 1) { // not registers in NJ
         hardPass();
-      }
-      if (sheet_original_index === 11) { // for-profit
-        $('.for-profit').show();
-        $('.non-profit').hide();
       }
       if (sheet_original_index === 2) { // not physically in NJ
         $('.physical_nj').hide();
         $('.not_in_nj').show();
+      }
+      if (sheet_original_index === 11) { // non-profit detail
+        $('.for-profit').show();
+      }
+      if (sheet_original_index === 13) { // entrepreneur
+        $('.entrepreneur').hide();
+      }
+      if (sheet_original_index === 110) { // for-profit or non-profit
+        $('.non-profit').show();
       }
 
       $(q).find(".answered").css({ color: "#888" });

@@ -16,11 +16,6 @@ h2, h3 {
 table {
   border: 1px solid #ccc;
 }
-@media (max-width: 1000px) {
-  .container-fluid {
-    width: 80%;
-  }
-}
 .question {
   border: 2px solid #ccc;
   border-radius: 20px;
@@ -30,6 +25,7 @@ table {
 .badge {
   float: right;
   margin: 5px;
+  font-size: 110%;
 }
 .btn {
   font-size: 130%;
@@ -70,7 +66,8 @@ table {
 }
 input.form-control {
   margin: 20px;
-  width: 50%;
+  padding: 5px;
+  width: 300px;
 }
 .report-filler {
   padding-top: 50px;
@@ -83,6 +80,12 @@ input.form-control {
 }
 .yes-print {
   display: none;
+}
+
+@media (max-width: 1000px) {
+  .container-fluid {
+    width: 80%;
+  }
 }
 @media print {
   form, .my_options, .no-print {
@@ -108,13 +111,13 @@ input.form-control {
               Disclaimer: ______
             </p>
             <ul>
-              <li class="eag">Emergency Assistance Grant Program</li>
-              <li class="eawcl">Emergency Assistance 0% Working Capital Loan Program</li>
-              <li class="guarantee">Emergency Assistance Guarantee Program</li>
-              <li class="egp">Entrepreneur Guarantee Program</li>
+              <li class="eag">Small Business Emergency Assistance Grant Program</li>
+              <li class="eawcl">Small Business Emergency Assistance Loan Program</li>
+              <li class="guarantee">Small Business Emergency Assistance Guarantee Program</li>
+              <li class="egp">NJ Entrepreneur Support Program</li>
             </ul>
             <ul>
-              <li class="eidl">Federal SBA EIDL Loans</li>
+              <li class="eidl">Federal SBA Emergency Injury Disaster Loans</li>
               <li class="frelief">Financial relief on existing NJEDA obligations</li>
               <li class="cdfi">Loans from a CDFI</li>
               <li class="bank">Financing from a private bank</li>
@@ -125,19 +128,20 @@ input.form-control {
               Disclaimer:
             </p>
             <ul>
-              <li id="eag">Emergency Assistance Grant Program</li>
-              <li id="eawcl">Emergency Assistance 0% Working Capital Loan Program</li>
-              <li id="guarantee">Emergency Assistance Guarantee Program</li>
-              <li id="egp">Entrepreneur Guarantee Program</li>
-              <li id="eidl">Federal SBA EIDL Loans</li>
-              <li id="frelief">Financial relief on your existing NJEDA loan obligations</li>
+              <li class="eag">Small Business Emergency Assistance Grant Program</li>
+              <li class="eawcl">Small Business Emergency Assistance Loan Program</li>
+              <li class="guarantee">Small Business Emergency Assistance Guarantee Program</li>
+              <li class="egp">NJ Entrepreneur Support Program</li>
             </ul>
             <ul>
-              <li id="cdfi">Loans from a CDFI</li>
-              <li id="bank">Financing from a private bank</li>
+              <li class="eidl">Federal SBA Emergency Injury Disaster Loans</li>
+              <li class="frelief">Financial relief on existing NJEDA obligations</li>
+              <li class="cdfi">Loans from a CDFI</li>
+              <li class="bank">Financing from a private bank</li>
             </ul>
           </div>
           <form class="form">
+            <h3>Connections to New Jersey</h3>
             <div id="q1" class="question">
               <span class="answered">‣</span>
               <p>
@@ -166,52 +170,6 @@ input.form-control {
               </button>
             </div>
 
-            <div id="q14" class="question">
-              <span class="answered">‣</span>
-              <p>
-                Is your business considered one of the following:
-                <span class="badge badge-success">NJ State Programs</span>
-                <ul>
-                  <li>Related to gambling or gaming activities</li>
-                  <li>Related to the purveyance of “adult” (i.e., pornographic, lewd, prurient, obscene) activities, services, products or materials (including nude or semi-nude performances or the sale of sexual aids or devices);</li>
-                  <li>An auction or bankruptcy or fire or “lost-our-lease” or “going-out-of-business” or similar sale;</li>
-                  <li>A traveling merchant</li>
-                  <li>A Christmas tree sales or other outdoor storage;</li>
-                  <li>Any other activity constituting a nuisance</li>
-                  <li>Illegal under the laws of the State of New Jersey"</li>
-                </ul>
-              </p>
-              <button class="btn btn-primary">
-                Yes
-              </button>
-              <button class="btn btn-dark">
-                No
-              </button>
-            </div>
-
-            <div id="q15" class="question">
-              <span class="answered">‣</span>
-              <p>
-                Is your business considered one of the following:
-                <span class="badge badge-success">Federal SBA EIDL Loans</span>
-                <ul>
-                  <li>Related to gambling or gaming activities</li>
-                  <li>Agricultural Enterprises (i.e. the primary activity of the business, including its affiliates, is as defined in Section 18(b)(1) of the Small Business Act)</li>
-                  <li>Religious organizations</li>
-                  <li>Charitable organizations</li>
-                  <li>Businesses considered hobbies</li>
-                  <li>Government-owned concerns</li>
-                  <li>Real estate developers - establishments primarily engaged in subdividing real property into lots and developing it for resale on their own account</li>
-                </ul>
-              </p>
-              <button class="btn btn-primary">
-                Yes
-              </button>
-              <button class="btn btn-dark">
-                No
-              </button>
-            </div>
-
             <div id="q0" class="question">
               <span class="answered">‣</span>
               <p>
@@ -228,12 +186,13 @@ input.form-control {
               </button>
             </div>
 
+            <h3>Type of Business</h3>
+
             <div id="q3" class="question">
               <span class="answered">‣</span>
               <p>
                 Is your business home-based?
               </p>
-              <span class="badge badge-success">Entrepreneur Guarantee Program</span>
               <button class="btn btn-primary">
                 Yes
               </button>
@@ -242,10 +201,49 @@ input.form-control {
               </button>
             </div>
 
-            <div id="q11" class="question">
+            <div id="q110" class="question">
               <span class="answered">‣</span>
               <p>
-                Is your business a non-profit with the designations of 501(c)(3), 501(c)(4), 501(c)(7)?
+                Is your business a <strong>for-profit</strong> (i.e. not a non-profit organization)?
+              </p>
+              <button class="btn btn-primary">
+                For-profit
+              </button>
+              <button class="btn btn-dark">
+                Non-profit
+              </button>
+            </div>
+
+            <div class="non-profit">
+              <div id="q11" class="question">
+                <span class="answered">‣</span>
+                <p>
+                  Is your non-profit officially designated as a 501(c)(3), 501(c)(4), 501(c)(7)?
+                </p>
+                <button class="btn btn-primary">
+                  Yes
+                </button>
+                <button class="btn btn-dark">
+                  No
+                </button>
+              </div>
+            </div>
+
+            <div id="q13" class="question">
+              <span class="answered">‣</span>
+              <p>
+                Do you consider your business to fit into one of the following categories:
+                <ul>
+                  <li>Technology</li>
+                  <li>Life Sciences</li>
+                  <li>Clean Energy</li>
+                  <li>Offshore wind</li>
+                  <li>Advanced transportation and logistics (does not include traditional logistics such as trucking, wholesale, or warehousing)</li>
+                  <li>Advanced manufacturing</li>
+                  <li>Finance and professional services</li>
+                  <li>Non-retail food and beverage (does not include restaurants, grocery stores, catering companies or other prepared or unprepared retail food outlets)</li>
+                  <li>Film and digital media</li>
+                </ul>
               </p>
               <button class="btn btn-primary">
                 Yes
@@ -254,6 +252,8 @@ input.form-control {
                 No
               </button>
             </div>
+
+            <h3>Emergency Loans</h3>
 
             <div class="for-profit">
               <div id="q19" class="question">
@@ -286,12 +286,12 @@ input.form-control {
               </div>
             </div>
 
-            <div class="physical_nj">
+            <div class="physical_nj entrepreneur">
               <div id="q5" class="question">
                 <span class="answered">‣</span>
                 <p>
-                  Does your business/non-profit have a  corporate headquarters
-                  in New Jersey, <strong>including at least one C-suite member</strong> with a
+                  Does your business/non-profit have <strong>a corporate headquarters
+                  in New Jersey</strong>, including at least one C-suite member with a
                   principal office in New Jersey?
                 </p>
                 <button class="btn btn-primary">
@@ -402,30 +402,6 @@ input.form-control {
               </button>
             </div>
 
-            <div id="q13" class="question">
-              <span class="answered">‣</span>
-              <p>
-                Do you consider your business to fit into one of the following categories:
-                <ul>
-                  <li>Technology</li>
-                  <li>Life Sciences</li>
-                  <li>Clean Energy</li>
-                  <li>Offshore wind</li>
-                  <li>Advanced transportation and logistics (does not include traditional logistics such as trucking, wholesale, or warehousing)</li>
-                  <li>Advanced manufacturing</li>
-                  <li>Finance and professional services</li>
-                  <li>Non-retail food and beverage (does not include restaurants, grocery stores, catering companies or other prepared or unprepared retail food outlets)</li>
-                  <li>Film and digital media</li>
-                </ul>
-              </p>
-              <button class="btn btn-primary">
-                Yes
-              </button>
-              <button class="btn btn-dark">
-                No
-              </button>
-            </div>
-
             <div id="q16" class="question">
               <span class="answered">‣</span>
               <p>
@@ -476,20 +452,86 @@ input.form-control {
             <div id="q20" class="question">
               <span class="answered">‣</span>
               <p>
-                Are you, your chief executive officer, or equivalent be able to certify
-                ALL of these:
+                Are you, your chief executive officer, or equivalent able to certify that:
+                <br/>
+                The organization will make its best-effort not to furlough or lay off any individuals from the time of application through the end of the COVID-19 outbreak period; businesses that have already furloughed or laid off workers must make a best-effort to re-hire those workers as soon as possible
               </p>
-              <ul>
-                <li>
-                  The organization will make its best-effort not to furlough or lay off any individuals from the time of application through the end of the COVID-19 outbreak period; businesses that have already furloughed or laid off workers must make a best-effort to re-hire those workers as soon as possible
-                </li>
-                <li>
-                  Your business been negatively impacted by the Covid-19 outbreak? (Negative impact is defined as a business that has been temporarily shut down, has been required to reduce hours, has had at least a 20% drop in revenue, has been materially impacted by employees who cannot work due to the outbreak, or has a supply chain that has materially been disrupted and therefore slowed firm-level production.)
-                </li>
-                <li>
-                  Your business has a material financial need that cannot be overcome without the grant of emergency relief funds at this time (e.g., does not have significant cash reserves that can support your operations during this period of economic disruption)
-                </li>
-              </ul>
+              <button class="btn btn-primary">
+                Yes
+              </button>
+              <button class="btn btn-dark">
+                No
+              </button>
+            </div>
+
+            <div id="q21" class="question">
+              <span class="answered">‣</span>
+              <p>
+                Are you, your chief executive officer, or equivalent able to certify that:
+                <br/>
+                Your business been negatively impacted by the Covid-19 outbreak? (Negative impact is defined as a business that has been temporarily shut down, has been required to reduce hours, has had at least a 20% drop in revenue, has been materially impacted by employees who cannot work due to the outbreak, or has a supply chain that has materially been disrupted and therefore slowed firm-level production.)
+              </p>
+              <button class="btn btn-primary">
+                Yes
+              </button>
+              <button class="btn btn-dark">
+                No
+              </button>
+            </div>
+
+            <div id="q22" class="question">
+              <span class="answered">‣</span>
+              <p>
+                Are you, your chief executive officer, or equivalent able to certify that:
+                <br/>
+                Your business has a material financial need that cannot be overcome without the grant of emergency relief funds at this time (e.g., does not have significant cash reserves that can support your operations during this period of economic disruption)
+              </p>
+              <button class="btn btn-primary">
+                Yes
+              </button>
+              <button class="btn btn-dark">
+                No
+              </button>
+            </div>
+
+            <div id="q14" class="question">
+              <span class="answered">‣</span>
+              <p>
+                Is your business considered one of the following:
+                <span class="badge badge-success">NJ State Programs</span>
+                <ul>
+                  <li>Related to gambling or gaming activities</li>
+                  <li>Related to the purveyance of “adult” (i.e., pornographic, lewd, prurient, obscene) activities, services, products or materials (including nude or semi-nude performances or the sale of sexual aids or devices);</li>
+                  <li>An auction or bankruptcy or fire or “lost-our-lease” or “going-out-of-business” or similar sale;</li>
+                  <li>A traveling merchant</li>
+                  <li>A Christmas tree sales or other outdoor storage;</li>
+                  <li>Any other activity constituting a nuisance</li>
+                  <li>Illegal under the laws of the State of New Jersey"</li>
+                </ul>
+              </p>
+              <button class="btn btn-primary">
+                Yes
+              </button>
+              <button class="btn btn-dark">
+                No
+              </button>
+            </div>
+
+            <div id="q15" class="question">
+              <span class="answered">‣</span>
+              <p>
+                Is your business considered one of the following:
+                <span class="badge badge-success">Federal SBA Programs</span>
+                <ul>
+                  <li>Related to gambling or gaming activities</li>
+                  <li>Agricultural Enterprises (i.e. the primary activity of the business, including its affiliates, is as defined in Section 18(b)(1) of the Small Business Act)</li>
+                  <li>Religious organizations</li>
+                  <li>Charitable organizations</li>
+                  <li>Businesses considered hobbies</li>
+                  <li>Government-owned concerns</li>
+                  <li>Real estate developers - establishments primarily engaged in subdividing real property into lots and developing it for resale on their own account</li>
+                </ul>
+              </p>
               <button class="btn btn-primary">
                 Yes
               </button>
@@ -638,42 +680,6 @@ input.form-control {
               <h4>Financing from a private bank</h4>
             </div>
 
-
-
-  <!-- 5. Premier Lender Loan
-  Description: This is the NJEDA’s partnership with banks to overcome the financial obstacles that can stall
-  the growth and expansion of NJ-based businesses and not-for-profits.
-  Eligibility:
-   Be in operation for at least two full years.
-   Commit to creation or retention of one new, full-time job for every $65,000 of NJEDA exposure
-  within two years.
-   1.1X Debt Service Coverage Ratio (for businesses); 1.0X Debt Service Coverage Ratio (for not-for-
-  profits).
-   100% loan-to-value for real estate and 90% for equipment
-  Available Funding:
-   Up to $2 million loan participation or $1.5 million loan guarantee for fixed assets;
-   Up to $750,000 loan participation or $1.5 million loan guarantee for term working capital;
-   Up to $750,000 line of credit guarantee
-  Learn more here
-
-  6. Micro Business Loan Program
-  Description: A pilot program designed to ensure that financing is accessible to early-stage and micro
-  businesses. Established to fill the gap in NJEDA’s suite of resources by offering low-cost financing
-  options.
-  Eligibility:
-   Must have annual revenues in most recent fiscal year of less than $1,500,000.
-   At time of application, business must have less than 10 FTEs in total. All employees must work in
-  New Jersey.
-   If the business is a startup, they must demonstrate completion of an entrepreneurship training
-  program or Small Business Development Center counseling sessions.
-  Available Funding: Up to $50,000 funds available for Working capital, or to purchase equipment.
-
-  7. Small Business fund
-  Description: Provides financial assistance to qualified businesses through direct loans, participations or
-  guarantees with a fixed interest rate.
-  Eligibility: Small businesses in operation for at least 1 full year and not-for-profits for at least 3 full years.
-  Availability: Small businesses: up to $500,000; Not-for-profits up to $500,000 with 1.0x historical debt
-  service coverage. -->
             <br/><br/>
 
             <button class="btn btn-success no-print" onclick="window.print()">
@@ -700,8 +706,9 @@ input.form-control {
             <p>If your business or non-profit is not registered to do business in New Jersey,
             or is an ineligible business type, NJEDA cannot assist.</p>
             <p>
-              Consider these two sources of private financing:
+              Consider these three sources of private financing:
               <ul>
+                <li>Federal loans from the Small Business Administration</li>
                 <li>Loans from a CDFI</li>
                 <li>Financing from a private bank</li>
               </ul>
