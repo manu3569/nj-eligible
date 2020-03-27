@@ -6,8 +6,31 @@
     <title>NJ Business Forms</title>
     <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <style>
+body {
+  background-color: #f3f5f7;
+}
+.header {
+  background-color: #0066A8;
+  padding: 40px;
+  text-align: center;
+}
+.header h1 {
+  color: #fff;
+}
+.header img {
+  max-width: 40px;
+  margin-right: 50px;
+}
+.header a {
+  color: #fff;
+  font-size: 80%;
+}
+.header svg {
+  margin-right: 8px;
+}
 .container-fluid {
   width: 60%;
+  background-color: #fff;
 }
 h2, h3 {
   margin-top: 30px;
@@ -98,22 +121,28 @@ input.form-control {
     </style>
   </head>
   <body>
+    <div class="header">
+      <img alt="Business.NJ.gov FAQ" src="./njlogo.png">
+      <a target="_blank" rel="noopener" href="https://business.nj.gov/" class="header__home__url"><svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg"><title>Group 65</title><g stroke="#FFF" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><path d="M11.5 6.73v6.77H.5v-11h7.615M4.5 9.5l7-7M13.5 5.5v-5h-5"></path></g></svg><span>Go to Business.NJ.gov</span></a>
+      <h1>NJEDA Emergency Grant Wizard</h1>
+    </div>
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-12">
+          <br/><br/>
           <h4>
-            The NJEDA Emergency Grant Wizard
-            <small>helps determine which programs are designed for your business</small>
+            This wizard helps determine which programs are designed for your business</small>
           </h4>
           <span class="fixed_marker"></span>
+          <br/>
           <div class="my_options">
             <p>
               Disclaimer: ______
             </p>
             <ul>
-              <li class="eag">Small Business Emergency Assistance Grant Program</li>
-              <li class="eawcl">Small Business Emergency Assistance Loan Program</li>
-              <li class="guarantee">Small Business Emergency Assistance Guarantee Program</li>
+              <li class="eag">Emergency Assistance Grant Program</li>
+              <li class="eawcl">Emergency Assistance Loan Program</li>
+              <li class="guarantee">Emergency Assistance Guarantee Program</li>
               <li class="egp">NJ Entrepreneur Support Program</li>
             </ul>
             <ul>
@@ -128,9 +157,9 @@ input.form-control {
               Disclaimer:
             </p>
             <ul>
-              <li class="eag">Small Business Emergency Assistance Grant Program</li>
-              <li class="eawcl">Small Business Emergency Assistance Loan Program</li>
-              <li class="guarantee">Small Business Emergency Assistance Guarantee Program</li>
+              <li class="eag">Emergency Assistance Grant Program</li>
+              <li class="eawcl">Emergency Assistance Loan Program</li>
+              <li class="guarantee">Emergency Assistance Guarantee Program</li>
               <li class="egp">NJ Entrepreneur Support Program</li>
             </ul>
             <ul>
@@ -345,13 +374,17 @@ input.form-control {
                   <li>Do not include 1099 employees in this calculation</li>
                 </ul>
               </p>
-              <input type="text" class="input form-control" name="fte"/>
-              <button class="btn btn-primary">
-                Enter
-              </button>
-              <button class="btn btn-info not-sure">
-                Skip
-              </button>
+              <div class="form-group">
+                <label for="fte">Total number of FTEs</label>
+                <small class="form-text text-muted">Examples: 1, 10.5, 15</small>
+                <input id="fte" type="text" class="input form-control form-control-lg" name="fte"/>
+                <button class="btn btn-primary">
+                  Enter
+                </button>
+                <button class="btn btn-info not-sure">
+                  Skip
+                </button>
+              </div>
             </div>
 
             <div id="q9" class="question">
@@ -359,7 +392,10 @@ input.form-control {
               <p>
                 What was your business' annual revenue for the year of 2019?
               </p>
-              <input type="text" class="input form-control" name="2019_revenue"/>
+              <div class="form-group">
+                <small class="form-text text-muted">Examples: $50000; $3,000,000</small>
+                <input type="text" class="input form-control" name="2019_revenue"/>
+              </div>
               <button class="btn btn-primary">
                 Enter
               </button>
@@ -373,7 +409,10 @@ input.form-control {
               <p>
                 What is your business' current 12-month trailing revenue?
               </p>
-              <input type="text" class="input form-control" name="12mo_revenue"/>
+              <div class="form-group">
+                <small class="form-text text-muted">Examples: $50000; $3,000,000</small>
+                <input type="text" class="input form-control" name="12mo_revenue"/>
+              </div>
               <button class="btn btn-primary">
                 Enter
               </button>
@@ -549,8 +588,11 @@ input.form-control {
           </form>
 
           <div class="report">
+            <h2>Wizard Responses: Covid-19 Economic Crisis Response Programs</h2>
+            <p>Thank you for using the COVID-19/Novel Coronavirus Business Information Wizard.</p>
 
             <h3>Based upon your feedback, you may be eligible for the following New Jersey programs:</h3>
+
             <button class="btn btn-success no-print" onclick="window.print()">
               Print this report
             </button>
@@ -582,11 +624,10 @@ input.form-control {
             </div>
 
             <div class="eawcl">
-              <h4>Emergency Zero Percent Loan Program</h4>
+              <h4>Emergency Assistance 0% Working Capital Loan Program</h4>
               <p>
                 <strong>Description:</strong>
-                A no/low-cost loan for up to 10 years
-                for NJ-based businesses with under $5M in revenue.
+                 A no/low-cost loan for up to 10 years for NJ-based businesses with under $5M in revenue.
               </p>
               <p>
                 <strong>Eligible Uses:</strong>
@@ -613,8 +654,7 @@ input.form-control {
               </p>
               <p>
                 <strong>Eligible Uses:</strong>
-                You are eligible for this program if you are negatively impacted by COVID-19, have less than
-                $5M in revenue and have been in business for at least one year.
+                 Covers operating expenses for New Jersey small businesses and non-profit organizations that have been impacted by the COVID-19 outbreak.
               </p>
               <p>
                 <strong>Available Funding:</strong>
@@ -625,7 +665,7 @@ input.form-control {
               <a href="https://faq.business.nj.gov/en/articles/3835236">https://faq.business.nj.gov/en/articles/3835236</a>
             </div>
             <div class="egp">
-              <h4>Start-up Entrepreneur Guarantee Program</h4>
+              <h4>Entrepreneur Guarantee Program</h4>
               <p>
                 <strong>Description:</strong>
                 Program provides 80% loan guarantees for working capital loans to start-up entrepreneurs,
@@ -634,8 +674,7 @@ input.form-control {
               </p>
               <p>
                 <strong>Eligible Uses:</strong>
-                You are eligible for this program if you have under $5 million in revenue, employ less than 25
-                employees, and have an investor with equity interest and position in the company.
+                 Investors can use this program to provide new funding to NJ entrepreneurial businesses in which they are already an investor.
               </p>
               <p>
                 <strong>Available Funding:</strong>
@@ -645,7 +684,7 @@ input.form-control {
               <a href="https://faq.business.nj.gov/en/articles/3835239">https://faq.business.nj.gov/en/articles/3835239</a>
             </div>
             <div class="frelief">
-              <h4>NJEDA Payment Moratorium/Loan Fee Forgiveness</h4>
+              <h4>Financial relief on existing NJEDA obligations</h4>
               <p>
                 <strong>Description:</strong>
                 A series of steps to support existing NJEDA business customers, including a 3-month
@@ -653,10 +692,8 @@ input.form-control {
               allowing collateral releases, subordinations and substitutions on business assets.
               </p>
               <p>
-                <strong>Eligibility:</strong>
-              - Are able to demonstrate negative impact related to COVID-19 on or after March 9th, 2020
-              - Are not in active litigation with NJEDA
-              - Have not been delinquent on your existing loan for 120 days
+                <strong>Eligible Uses:</strong>
+                Support for current NJEDA business customers
               </p>
               <p>
                 <strong>Availability:</strong> Current NJEDA business customers.
@@ -664,18 +701,15 @@ input.form-control {
               </p>
             </div>
             <div class="eidl">
-              <h4>Small Business Administration (SBA) Emergency Injury Disaster Loans</h4>
+              <h4>Federal Small Business Administration (SBA) Emergency Injury Disaster Loans (EIDL)</h4>
               <p>
                 <strong>Description:</strong>
                 Provides low-interest federal disaster loans for working capital to small businesses suffering
               substantial economic injury as a result of the Coronavirus (COVID-19).
               </p>
               <p>
-                <strong>Eligibility:</strong>
-                 Businesses must have a physical presence in the declared disaster area (note: all of NJ has been
-                declared a disaster area)
-                 Eligibility for these working capital loans are based on the size and type of business and its
-                financial resources.
+                <strong>Eligible Uses:</strong>
+                Working capital
               </p>
               <p>
                 <strong>Availability:</strong>

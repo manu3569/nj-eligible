@@ -1,6 +1,6 @@
 function parseNumber(num) {
   return Number(
-    String(num).replace(/\,|\$/g, '')
+    String(num).replace(/\,|\$|\s/g, '')
   );
 }
 
