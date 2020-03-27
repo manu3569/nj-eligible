@@ -1,6 +1,6 @@
 function parseNumber(num) {
   return Number(
-    String(fte).replace(/\,|\$/g, '')
+    String(num).replace(/\,|\$/g, '')
   );
 }
 
@@ -142,7 +142,11 @@ function nextQuestion(currentQuestion) {
   if (!nextDiv) {
     moveToReport();
   }
-  while($(nextDiv).parent().css("display") === "none") {
+  while(
+    ($(nextDiv).parent().css("display") === "none")
+    ||
+    ($(nextDiv).find(".answered").css("color") === "rgb(136, 136, 136)")
+    ) {
     currentQuestion++;
     nextDiv = $(".question")[currentQuestion + 1];
     if (!nextDiv) {
@@ -285,7 +289,7 @@ $(document).ready(function() {
         if (answers[2] === false) {
           $('.detail_qs').hide();
         } else if (answers[2] === true) {
-          $('.detail_qs').show();          
+          $('.detail_qs').show();
         }
       } else if (sheet_original_index === 11) { // non-profit detail
         $('.for-profit').show();
