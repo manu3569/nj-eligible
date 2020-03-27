@@ -118,9 +118,18 @@ var programs = Object.keys(requirements);
 
 var answers = [];
 
-function moveToReport() {
+function moveToReport(e) {
+  e.preventDefault();
   $("form, .hidden_options, .preamble").hide();
   $(".report").show();
+  return false;
+}
+
+function viewQs(e) {
+  e.preventDefault();
+  $(".report").hide();
+  $("form, .hidden_options, .preamble").show();
+  return false;
 }
 
 function nextQuestion(currentQuestion) {
@@ -130,7 +139,7 @@ function nextQuestion(currentQuestion) {
 
   var nextDiv = $(".question")[currentQuestion + 1];
   if (!nextDiv) {
-    moveToReport();
+    $("#guide-btn").css({ display: "block" });
   }
   while(
     ($(nextDiv).parent().css("display") === "none")
@@ -140,7 +149,8 @@ function nextQuestion(currentQuestion) {
     currentQuestion++;
     nextDiv = $(".question")[currentQuestion + 1];
     if (!nextDiv) {
-      moveToReport();
+      $("#guide-btn").css({ display: "block" });
+      break;
     }
   }
 
@@ -188,6 +198,10 @@ function nextQuestion(currentQuestion) {
 function hardPass() {
   $(".modal").modal({ show: true });
   return false;
+}
+
+function viewGuide() {
+
 }
 
 $(document).ready(function() {
@@ -287,6 +301,8 @@ $(document).ready(function() {
         $('.for-profit').show();
       } else if (sheet_original_index === 13) { // entrepreneur
         $('.entrepreneur').hide();
+      } else if (sheet_original_index === 42) { // agree to disclaimer
+        hardPass();
       } else if (sheet_original_index === 110) { // for-profit or non-profit
         $('.non-profit').show();
       }

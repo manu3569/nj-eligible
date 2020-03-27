@@ -83,6 +83,13 @@ table {
 .hidden_options {
   display: none;
 }
+#guide-btn {
+  display: none;
+  margin-top: 8px;
+  font-size: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
 @media (min-width: 900px) {
   .my_options.scrollme {
     position: fixed;
@@ -130,7 +137,7 @@ input.form-control {
   <body>
     <div class="header">
       <img alt="cv.business.nj.gov logo" src="./njlogo.png">
-      <a target="_blank" rel="noopener" href="http://cv.business.nj.gov/" class="header__home__url"><svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg"><title>Group 65</title><g stroke="#FFF" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><path d="M11.5 6.73v6.77H.5v-11h7.615M4.5 9.5l7-7M13.5 5.5v-5h-5"></path></g></svg>
+      <a target="_blank" rel="noopener" href="https://cv.business.nj.gov/" class="header__home__url"><svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg"><title>Group 65</title><g stroke="#FFF" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><path d="M11.5 6.73v6.77H.5v-11h7.615M4.5 9.5l7-7M13.5 5.5v-5h-5"></path></g></svg>
         <span>Go to CV.Business.NJ.gov</span></a>
       <h1>State of New Jersey COVID-19 Business Support Eligibility Wizard</h1>
     </div>
@@ -145,28 +152,11 @@ input.form-control {
             <p>
               This is a beta version of the Eligibility Wizard that focuses on newly announced State Emergency Assistance programs and the SBA disaster loan program.  We will be updating it regularly as new federal, state, local, and philanthropic programs become available.
             </p>
-            <strong>NJEDA Disclaimer for Business Support Eligibility Wizard</strong>
-            <p>
-              The NJEDA is offering this screening tool that recommends emergency assistance
-              programs for you to consider based upon information you provide about your organization
-              as a courtesy.
-            </p>
-            <p>
-              To apply for a program, you need to apply through the appropriate administering
-              agency. The Business Support Eligibility Wizard will provide guidance on how to apply
-              for any benefit on this website but cannot guarantee eligibility. The administering
-              agency will determine final eligibility upon your submission of an application for
-              each program.
-            </p>
-            <p>
-              The information you share for purposes of public benefits screening will be
-              anonymous and can be shared with NJ State agencies to improve access to
-              benefits and programs.
-            </p>
           </div>
           <span class="fixed_marker"></span>
           <br/>
           <div class="my_options">
+            <h5>Included programs</h5>
             <ul>
               <li class="eag">Emergency Assistance Grant Program</li>
               <li class="eawcl">Emergency Assistance Loan Program</li>
@@ -181,9 +171,7 @@ input.form-control {
             </ul>
           </div>
           <div class="hidden_options no-print">
-            <p>
-              Disclaimer:
-            </p>
+            <h5>Included programs</h5>
             <ul>
               <li class="eag">Emergency Assistance Grant Program</li>
               <li class="eawcl">Emergency Assistance Loan Program</li>
@@ -198,6 +186,34 @@ input.form-control {
             </ul>
           </div>
           <form class="form">
+            <div id="q42" class="question">
+              <span class="answered">‣</span>
+              <strong>NJEDA Disclaimer for Business Support Eligibility Wizard</strong>
+              <p>
+                The NJEDA is offering this screening tool that recommends emergency assistance
+                programs for you to consider based upon information you provide about your organization
+                as a courtesy.
+              </p>
+              <p>
+                To apply for a program, you need to apply through the appropriate administering
+                agency. The Business Support Eligibility Wizard will provide guidance on how to apply
+                for any benefit on this website but cannot guarantee eligibility. The administering
+                agency will determine final eligibility upon your submission of an application for
+                each program.
+              </p>
+              <p>
+                The information you share for purposes of public benefits screening will be
+                anonymous and can be shared with NJ State agencies to improve access to
+                benefits and programs.
+              </p>
+              <button class="btn btn-primary">
+                Agree
+              </button>
+              <button class="btn btn-dark">
+                Cancel
+              </button>
+            </div>
+
             <h3>Basic Information</h3>
             <div id="q1" class="question">
               <span class="answered">‣</span>
@@ -340,7 +356,7 @@ input.form-control {
                 Yes
               </button>
               <button class="btn btn-dark">
-                No
+                None of the above
               </button>
             </div>
 
@@ -505,7 +521,7 @@ input.form-control {
               <button class="btn btn-primary">
                 Yes
               </button>
-              <button class="btn btn-info">
+              <button class="btn btn-info not-sure">
                 Not Sure
               </button>
               <button class="btn btn-dark">
@@ -526,7 +542,7 @@ input.form-control {
               <button class="btn btn-primary">
                 Yes
               </button>
-              <button class="btn btn-info">
+              <button class="btn btn-info not-sure">
                 Not Sure
               </button>
               <button class="btn btn-dark">
@@ -634,8 +650,11 @@ input.form-control {
               </button>
             </div>
 
-            <h4 class="report-filler">After you answer all questions, a printable guide
-            will appear here.</h4>
+            <h4 class="report-filler">
+                After you answer all questions, a printable guide will appear here.
+                <br/>
+                <button id="guide-btn" class="btn btn-success" onclick="moveToReport(event)">View Guide</button>
+            </h4>
           </form>
 
           <div class="report">
@@ -644,14 +663,19 @@ input.form-control {
             <button class="btn btn-success no-print" onclick="window.print()">
               Print this report
             </button>
-            <button class="btn btn-info no-print" onclick="window.location.reload()">
+            <button class="btn btn-info no-print" onclick="viewQs(event)">
+              Change Answers
+            </button>
+            <button class="btn btn-warning no-print" onclick="window.location.reload()">
               Start over
             </button>
 
             <p><strong>Disclaimer:</strong>
+              <em>
               The NJEDA is offering this screening tool that recommends emergency assistance
               programs for you to consider based upon information you provide about your
               organization as a courtesy.
+            </em>
             </p>
             <p>
               It is the responsibility of your company to fully assess your eligibility for all
@@ -815,14 +839,20 @@ input.form-control {
               </p>
             </div>
 
-            <br/><br/>
+            <br/>
+            <br/>
 
             <button class="btn btn-success no-print" onclick="window.print()">
               Print this report
             </button>
-            <button class="btn btn-info no-print" onclick="window.location.reload()">
+            <button class="btn btn-info no-print" onclick="viewQs()">
+              Change Answers
+            </button>
+            <button class="btn btn-warning no-print" onclick="window.location.reload()">
               Start over
             </button>
+            <div style="height:150px">
+            </div>
           </div>
         </div>
       </div>
@@ -832,7 +862,7 @@ input.form-control {
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">Ineligible Business</h5>
+            <h5 class="modal-title">Exiting Wizard</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -841,6 +871,9 @@ input.form-control {
             <p>The State of New Jersey COVID-19 Business Support Eligibility Wizard is
               designed to help organizations registered in New Jersey identify emergency
               assistance programs for which they are eligible.
+            </p>
+            <p>
+              You can read about all of our programs at <a href="https://cv.business.nj.gov/">https://cv.business.nj.gov/</a>
             </p>
             <p>
               If your business or non-profit is not registered to do business in New Jersey,
