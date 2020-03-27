@@ -219,29 +219,29 @@ $(document).ready(function() {
       if (sheet_original_index === 2) { // physically in NJ
         $('.physical_nj').show();
         $('.not_in_nj').hide();
-      }
-      if (sheet_original_index === 8) { // how many FTE
+
+        if (answers[3] === false) {
+          $('.detail_qs').show();
+        } else if (answers[3] === true) {
+          $('.detail_qs').hide();
+        }
+      } else if (sheet_original_index === 3) { // home business
+        $('.detail_qs').hide();
+      } else if (sheet_original_index === 8) { // how many FTE
         answers[sheet_original_index] = 1 * $("input[name='fte']").val();
-      }
-      if (sheet_original_index === 9) { // 2019 revenue
+      } else if (sheet_original_index === 9) { // 2019 revenue
         answers[sheet_original_index] = 1 * $("input[name='2019_revenue']").val();
-      }
-      if (sheet_original_index === 10) { // YTD 12-month revenue
+      } else if (sheet_original_index === 10) { // YTD 12-month revenue
         answers[sheet_original_index] = 1 * $("input[name='12mo_revenue']").val();
-      }
-      if (sheet_original_index === 11) { // nonprofit detail button
+      } else if (sheet_original_index === 11) { // nonprofit detail button
         $('.for-profit').hide();
-      }
-      if (sheet_original_index === 12) { // NAICS
+      } else if (sheet_original_index === 12) { // NAICS
         answers[sheet_original_index] = $("input[name='12mo_revenue']").val();
-      }
-      if (sheet_original_index === 13) { // entrepreneur
+      } else if (sheet_original_index === 13) { // entrepreneur
         $('.entrepreneur').show();
-      }
-      if (sheet_original_index === 14) { // NJ illegal business
+      } else if (sheet_original_index === 14) { // NJ illegal business
         hardPass();
-      }
-      if (sheet_original_index === 110) { // for-profit or non-profit
+      } else if (sheet_original_index === 110) { // for-profit or non-profit
         $('.non-profit').hide();
       }
 
@@ -278,18 +278,20 @@ $(document).ready(function() {
 
       if (sheet_original_index === 1) { // not registers in NJ
         hardPass();
-      }
-      if (sheet_original_index === 2) { // not physically in NJ
+      } else if (sheet_original_index === 2) { // not physically in NJ
         $('.physical_nj').hide();
         $('.not_in_nj').show();
-      }
-      if (sheet_original_index === 11) { // non-profit detail
+      } else if (sheet_original_index === 3) { // home business
+        if (answers[2] === false) {
+          $('.detail_qs').hide();
+        } else if (answers[2] === true) {
+          $('.detail_qs').show();          
+        }
+      } else if (sheet_original_index === 11) { // non-profit detail
         $('.for-profit').show();
-      }
-      if (sheet_original_index === 13) { // entrepreneur
+      } else if (sheet_original_index === 13) { // entrepreneur
         $('.entrepreneur').hide();
-      }
-      if (sheet_original_index === 110) { // for-profit or non-profit
+      } else if (sheet_original_index === 110) { // for-profit or non-profit
         $('.non-profit').show();
       }
 
