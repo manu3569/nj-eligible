@@ -1,6 +1,6 @@
 function parseNumber(num) {
   return Number(
-    String(num).replace(/\,|\$|\s/g, '')
+    String(num).replace(/\,|\;|\$|\s/g, '')
   );
 }
 
@@ -238,11 +238,11 @@ $(document).ready(function() {
       } else if (sheet_original_index === 3) { // home business
         $('.detail_qs').hide();
       } else if (sheet_original_index === 8) { // how many FTE
-        answers[sheet_original_index] = 1 * $("input[name='fte']").val();
+        answers[sheet_original_index] = $("input[name='fte']").val();
       } else if (sheet_original_index === 9) { // 2019 revenue
-        answers[sheet_original_index] = 1 * $("input[name='2019_revenue']").val();
+        answers[sheet_original_index] = $("input[name='2019_revenue']").val();
       } else if (sheet_original_index === 10) { // YTD 12-month revenue
-        answers[sheet_original_index] = 1 * $("input[name='12mo_revenue']").val();
+        answers[sheet_original_index] = $("input[name='12mo_revenue']").val();
       } else if (sheet_original_index === 11) { // nonprofit detail button
         $('.for-profit').hide();
       } else if (sheet_original_index === 12) { // NAICS
