@@ -107,11 +107,11 @@ var nonprofit_q = 11,
       },
       9: function (revenue) {
         revenue = parseNumber(revenue);
-        return revenue < 1000000;
+        return revenue >= 100000;
       },
       10: function (revenue) {
         revenue = parseNumber(revenue);
-        return revenue < 1000000;
+        return revenue >= 100000;
       }
     }
   }
@@ -124,6 +124,7 @@ function moveToReport(e) {
   e.preventDefault();
   $("form, .hidden_options, .preamble").hide();
   $(".report").show();
+  $(window).scrollTop(0);
   return false;
 }
 
