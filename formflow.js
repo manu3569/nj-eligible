@@ -119,7 +119,7 @@ var programs = Object.keys(requirements);
 var answers = [];
 
 function moveToReport() {
-  $("form, .hidden_options").hide();
+  $("form, .hidden_options, .preamble").hide();
   $(".report").show();
 }
 
@@ -177,8 +177,10 @@ function nextQuestion(currentQuestion) {
 
     if (muteProgram) {
       $("." + pcode).css({ opacity: 0.4 }).addClass("no-print");
+      $("div." + pcode).css({ display: "none" }).addClass("no-print");
     } else {
       $("." + pcode).css({ opacity: 1 }).removeClass("no-print");
+      $("div." + pcode).css({ display: "block" }).removeClass("no-print");
     }
   });
 }
