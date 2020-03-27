@@ -129,8 +129,9 @@ input.form-control {
   </head>
   <body>
     <div class="header">
-      <img alt="Business.NJ.gov FAQ" src="./njlogo.png">
-      <a target="_blank" rel="noopener" href="https://business.nj.gov/" class="header__home__url"><svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg"><title>Group 65</title><g stroke="#FFF" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><path d="M11.5 6.73v6.77H.5v-11h7.615M4.5 9.5l7-7M13.5 5.5v-5h-5"></path></g></svg><span>Go to Business.NJ.gov</span></a>
+      <img alt="cv.business.nj.gov logo" src="./njlogo.png">
+      <a target="_blank" rel="noopener" href="http://cv.business.nj.gov/" class="header__home__url"><svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg"><title>Group 65</title><g stroke="#FFF" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><path d="M11.5 6.73v6.77H.5v-11h7.615M4.5 9.5l7-7M13.5 5.5v-5h-5"></path></g></svg>
+        <span>Go to CV.Business.NJ.gov</span></a>
       <h1>State of New Jersey COVID-19 Business Support Eligibility Wizard</h1>
     </div>
     <div class="container-fluid">
@@ -244,8 +245,6 @@ input.form-control {
               <p>
                 Does your organization have an existing financial relationships
                 with NJEDA such as a loan or incentive agreement?
-
-                <span class="badge badge-success">NJEDA financial relief</span>
               </p>
               <button class="btn btn-primary">
                 Yes
@@ -379,8 +378,8 @@ input.form-control {
               <div id="q4" class="question">
                 <span class="answered">‣</span>
                 <p>
-                  Does your business have a minimum of 50% of employees in
-                  New Jersey, as reported on your NJ WR-30 at year end 2019?
+                  Does your business have <strong>a minimum of 50% of employees in
+                  New Jersey</strong>, as reported on your NJ WR-30 at year end 2019?
                 </p>
                 <button class="btn btn-primary">
                   Yes
@@ -448,7 +447,7 @@ input.form-control {
               <div id="q16" class="question">
                 <span class="answered">‣</span>
                 <p>
-                  Do you have financial statements that can be provided that are
+                  Do you have financial statements that are
                   CPA prepared, management prepared, or filed copies of business tax returns?
                 </p>
                 <button class="btn btn-primary">
@@ -463,7 +462,7 @@ input.form-control {
             <div id="q18" class="question">
               <span class="answered">‣</span>
               <p>
-                Do you or your business have a minimum FICO score of at least 600?
+                Do you, another owner, or your business have a minimum FICO score of at least 600?
               </p>
               <button class="btn btn-primary">
                 Yes
@@ -500,11 +499,14 @@ input.form-control {
                  Are you able to certify that you are in good standing with the
                  New Jersey Department of Taxation?
                  <br/>
-                 <em>Note, you may be required to provide a Tax Clearance
+                 <em>Note: you may be required to provide a Tax Clearance
                    Certificate for certain emergency assistance programs.</em>
               </p>
               <button class="btn btn-primary">
                 Yes
+              </button>
+              <button class="btn btn-info">
+                Not Sure
               </button>
               <button class="btn btn-dark">
                 No
@@ -515,9 +517,17 @@ input.form-control {
               <span class="answered">‣</span>
               <p>
                 Are you in good standing with the New Jersey Department of Labor?
+                <br/>
+                <em>Note, you will be required to be in good standing with the New Jersey
+                Department of Labor to be eligible for State assistance.  This means not
+                having unpaid unemployment holdings, unpaid fees, or outstanding employee
+                wage and hour violations.</em>
               </p>
               <button class="btn btn-primary">
                 Yes
+              </button>
+              <button class="btn btn-info">
+                Not Sure
               </button>
               <button class="btn btn-dark">
                 No
@@ -531,7 +541,10 @@ input.form-control {
                 <p>
                   Are you, your chief executive officer, or equivalent able to certify that:
                   <br/>
-                  The organization will make its best-effort not to furlough or lay off any individuals from the time of application through the end of the COVID-19 outbreak period; businesses that have already furloughed or laid off workers must make a best-effort to re-hire those workers as soon as possible
+                  The organization will make its
+                  <strong>best-effort not to furlough or lay off any individuals</strong>
+                  from the time of application through the end of the COVID-19 outbreak period; businesses that have already furloughed or laid off workers
+                  must <strong>make a best-effort to re-hire those workers as soon as possible</strong>.
                 </p>
                 <button class="btn btn-primary">
                   Yes
@@ -546,7 +559,9 @@ input.form-control {
                 <p>
                   Are you, your chief executive officer, or equivalent able to certify that:
                   <br/>
-                  Your business has a material financial need that cannot be overcome without the grant of emergency relief funds at this time (e.g., does not have significant cash reserves that can support your operations during this period of economic disruption)
+                  Your business has
+                  <strong>a material financial need that cannot be overcome without the use of emergency relief funds</strong>
+                  at this time (e.g., does not have significant cash reserves that can support your operations during this period of economic disruption)
                 </p>
                 <button class="btn btn-primary">
                   Yes
@@ -561,7 +576,8 @@ input.form-control {
                 <p>
                   Are you, your chief executive officer, or equivalent able to certify that:
                   <br/>
-                  Your business been negatively impacted by the Covid-19 outbreak? (Negative impact is defined as a business that has been temporarily shut down, has been required to reduce hours, has had at least a 20% drop in revenue, has been materially impacted by employees who cannot work due to the outbreak, or has a supply chain that has materially been disrupted and therefore slowed firm-level production.)
+                  Your business been negatively impacted by the Covid-19 outbreak?
+                  Note: negative impact is defined as a business that has been temporarily shut down, has been required to reduce hours, has had at least a 20% drop in revenue, has been materially impacted by employees who cannot work due to the outbreak, or has a supply chain that has materially been disrupted and therefore slowed firm-level production.
                 </p>
                 <button class="btn btn-primary">
                   Yes
@@ -623,8 +639,15 @@ input.form-control {
           </form>
 
           <div class="report">
-            <h2 class="no-print">Wizard Responses: Covid-19 Economic Crisis Response Programs</h2>
-            <p>Thank you for using the COVID-19/Novel Coronavirus Business Information Wizard.</p>
+            <h3>Based upon your feedback, you may be eligible for the following New Jersey programs:</h3>
+
+            <button class="btn btn-success no-print" onclick="window.print()">
+              Print this report
+            </button>
+            <button class="btn btn-info no-print" onclick="window.location.reload()">
+              Start over
+            </button>
+
             <p><strong>Disclaimer:</strong>
               The NJEDA is offering this screening tool that recommends emergency assistance
               programs for you to consider based upon information you provide about your
@@ -642,14 +665,6 @@ input.form-control {
               your submission of an application for each program.
             </p>
 
-            <h3>Based upon your feedback, you may be eligible for the following New Jersey programs:</h3>
-
-            <button class="btn btn-success no-print" onclick="window.print()">
-              Print this report
-            </button>
-            <button class="btn btn-info no-print" onclick="window.location.reload()">
-              Start over
-            </button>
             <br class="no-print"/>
             <br class="no-print"/>
             <div class="eag">
