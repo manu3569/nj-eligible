@@ -7,22 +7,12 @@ function parseNumber(num) {
 var nonprofit_q = 11,
     requirements = {
   eag: { // Emergency Assistance Grant
-    required_yes: [1, 2, 16, 17, 20, 21, 22],
+    required_yes: [1, 2, 12, 16, 17, 20, 21, 22],
     required_no: [3, 14],
     eval: {
       8: function (fte) {
         fte = parseNumber(fte);
         return fte >= 1 && fte <= 10;
-      },
-      12: function (naics_code) {
-        naics_code = String(naics_code).trim();
-        var valid_starts = ["42", "43", "72", "71", "811", "812"];
-        for (var v = 0; v < valid_starts.length; v++) {
-          if (naics_code.indexOf(valid_starts[v]) === 0) {
-            return true;
-          }
-        }
-        return false;
       },
       11: function (val) {
         return (val === true) || (answers[nonprofit_q] === false);
@@ -145,7 +135,7 @@ function nextQuestion(currentQuestion) {
   while(
     ($(nextDiv).parent().css("display") === "none")
     ||
-    ($(nextDiv).find(".answered").css("color") === "rgb(136, 136, 136)")
+    ($(nextDiv).find(".answered").css("color") === "rgb(170, 170, 170)")
     ) {
     currentQuestion++;
     nextDiv = $(".question")[currentQuestion + 1];
@@ -249,7 +239,7 @@ $(document).ready(function() {
         $('.non-profit').hide();
       }
 
-      $(q).find(".answered").css({ color: "#888" });
+      $(q).find(".answered").css({ color: "#aaa" });
       $(q).find(".btn").css({ border: "none" });
       $(e.target).css({ border: "3px solid orange" });
 

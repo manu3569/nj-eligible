@@ -3,34 +3,37 @@
   <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <title>NJ Business Forms</title>
+    <title>New Jersey's COVID-19 Business Support Eligibility Wizard</title>
     <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <style>
 body {
-  background-color: #f3f5f7;
+  background-color: #00597c;
 }
 .header {
-  background-color: #0066A8;
+  background-color: #fff;
   padding: 40px;
   text-align: center;
 }
-.header h1 {
-  color: #fff;
-}
 .header img {
-  max-width: 40px;
+  max-width: 200px;
   margin-right: 50px;
 }
 .header a {
-  color: #fff;
+  color: #000;
   font-size: 80%;
 }
 .header svg {
   margin-right: 8px;
 }
+.header svg g {
+  stroke: #000 !important;
+}
 .container-fluid {
   width: 60%;
   background-color: #fff;
+}
+.modal-dialog {
+  max-width: 600px;
 }
 h2, h3 {
   margin-top: 30px;
@@ -62,7 +65,7 @@ table {
   left: -30px;
   font-size: 40pt;
   display: none;
-  /* cursor: pointer; */
+  color: #fff;
 }
 .my_options {
   background: #efefef;
@@ -124,21 +127,39 @@ input.form-control {
     <div class="header">
       <img alt="Business.NJ.gov FAQ" src="./njlogo.png">
       <a target="_blank" rel="noopener" href="https://business.nj.gov/" class="header__home__url"><svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg"><title>Group 65</title><g stroke="#FFF" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><path d="M11.5 6.73v6.77H.5v-11h7.615M4.5 9.5l7-7M13.5 5.5v-5h-5"></path></g></svg><span>Go to Business.NJ.gov</span></a>
-      <h1>NJEDA Emergency Grant Wizard</h1>
+      <h1>State of New Jersey COVID-19 Business Support Eligibility Wizard</h1>
     </div>
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-12">
           <br/><br/>
-          <h4>
-            This wizard helps determine which programs are designed for your business</small>
-          </h4>
+          <p>
+            The COVID-19 outbreak is causing extraordinary disruption for companies and non-profits across the Garden State.  The NJEDA wants to make it easy for organization to understand what support programs are available to you to help stabilize your operations and eventually get back on a pathway to growth.
+          </p>
+          <p>
+            This is a beta version of the Eligibility Wizard that focuses on newly announced State Emergency Assistance programs and the SBA disaster loan program.  We will be updating it regularly as new federal, state, local, and philanthropic programs become available.
+          </p>
+          <strong>NJEDA Disclaimer for Business Support Eligibility Wizard</strong>
+          <p>
+            The NJEDA is offering this screening tool that recommends emergency assistance
+            programs for you to consider based upon information you provide about your organization
+            as a courtesy.
+          </p>
+          <p>
+            To apply for a program, you need to apply through the appropriate administering
+            agency. The Business Support Eligibility Wizard will provide guidance on how to apply
+            for any benefit on this website but cannot guarantee eligibility. The administering
+            agency will determine final eligibility upon your submission of an application for
+            each program.
+          </p>
+          <p>
+            The information you share for purposes of public benefits screening will be
+            anonymous and can be shared with NJ State agencies to improve access to
+            benefits and programs.
+          </p>
           <span class="fixed_marker"></span>
           <br/>
           <div class="my_options">
-            <p>
-              Disclaimer: ______
-            </p>
             <ul>
               <li class="eag">Emergency Assistance Grant Program</li>
               <li class="eawcl">Emergency Assistance Loan Program</li>
@@ -206,6 +227,19 @@ input.form-control {
                 such as a loan or incentive agreement?
 
                 <span class="badge badge-success">NJEDA financial relief</span>
+              </p>
+              <button class="btn btn-primary">
+                Yes
+              </button>
+              <button class="btn btn-dark">
+                No
+              </button>
+            </div>
+
+            <div id="q23" class="question">
+              <span class="answered">‣</span>
+              <p>
+                Are you in good standing with the New Jersey Department of Labor?
               </p>
               <button class="btn btn-primary">
                 Yes
@@ -424,20 +458,21 @@ input.form-control {
             <div id="q12" class="question">
               <span class="answered">‣</span>
               <p>
-                What is your business' NAICS Code?
-
-                You can find your NAICS code on your Tax Form 1040 Schedule C.
-                (For the purpose of this wizard, you can also look it up here:
-                <a href="https://www.naics.com/search/" target="_blank">
-                  naics.com/search/
-                </a>)
+                Is your business classified in one of the following industries?
               </p>
+              <ul>
+                <li>Retail</li>
+                <li>Accommodation & food services</li>
+                <li>Arts, entertainment & recreation </li>
+                <li>Other services, such as repair and maintenance of vehicles, machinery, equipment, or products </li>
+                <li>Other services, such as personal services (barbers, cleaners, nail salons, etc.) or laundry</li>
+              </ul>
               <input type="text" class="input form-control" name="naics"/>
               <button class="btn btn-primary">
-                Enter
+                Yes
               </button>
-              <button class="btn btn-info not-sure">
-                Skip
+              <button class="btn btn-dark">
+                No
               </button>
             </div>
 
@@ -460,10 +495,10 @@ input.form-control {
             <div id="q17" class="question">
               <span class="answered">‣</span>
               <p>
-                Are you able to get a Tax Clearance Certificate from the New Jersey
-                Department of Treasury?
-                <!-- (Click here to check for information on how
-                to check your tax clearance status). -->
+                 Are you able to certify that you are in good standing with the
+                 New Jersey Department of Taxation.
+                 <em>Note, you may be required to provide a Tax Clearance
+                   Certificate for certain emergency assistance programs.</em>
               </p>
               <button class="btn btn-primary">
                 Yes
@@ -590,6 +625,22 @@ input.form-control {
           <div class="report">
             <h2>Wizard Responses: Covid-19 Economic Crisis Response Programs</h2>
             <p>Thank you for using the COVID-19/Novel Coronavirus Business Information Wizard.</p>
+            <p><strong>Disclaimer:</strong>
+              The NJEDA is offering this screening tool that recommends emergency assistance
+              programs for you to consider based upon information you provide about your
+              organization as a courtesy.
+            </p>
+            <p>
+              It is the responsibility of your company to fully assess your eligibility for all
+              State assistance programs.  If you have additional questions, please ask them in
+              the chat feature of our COVID Business Information Hub:
+              <a href="https://cv.business.nj.gov" target="_blank">https://cv.business.nj.gov</a>.
+            </p>
+            <p>
+              To apply for a program listed below, you need to apply through the appropriate
+              administering agency. The administering agency will determine final eligibility upon
+              your submission of an application for each program.
+            </p>
 
             <h3>Based upon your feedback, you may be eligible for the following New Jersey programs:</h3>
 
@@ -619,7 +670,7 @@ input.form-control {
                 <strong>Available Funding:</strong>
                 $1K per full-time employee, up to $5,000.
                 Learn more here:
-                <a href="https://faq.business.nj.gov/en/articles/3835237">https://faq.business.nj.gov/en/articles/3835237</a>
+                <a href="https://faq.business.nj.gov/en/articles/3835237" target="_blank">https://faq.business.nj.gov/en/articles/3835237</a>
               </p>
             </div>
 
@@ -640,7 +691,7 @@ input.form-control {
                 1-2% for years 6-10.
               </p>
               <strong>Learn more here</strong>:
-              <a href="https://faq.business.nj.gov/en/articles/3835238">https://faq.business.nj.gov/en/articles/3835238</a>
+              <a href="https://faq.business.nj.gov/en/articles/3835238" target="_blank">https://faq.business.nj.gov/en/articles/3835238</a>
             </div>
             <div class="guarantee">
               <h4>Emergency Assistance Guarantee Program</h4>
@@ -662,7 +713,7 @@ input.form-control {
                 $100K working capital loan; the program can provide up to $10 million in total.
               </p>
               <strong>Learn more here</strong>:
-              <a href="https://faq.business.nj.gov/en/articles/3835236">https://faq.business.nj.gov/en/articles/3835236</a>
+              <a href="https://faq.business.nj.gov/en/articles/3835236" target="_blank">https://faq.business.nj.gov/en/articles/3835236</a>
             </div>
             <div class="egp">
               <h4>Entrepreneur Guarantee Program</h4>
@@ -681,7 +732,7 @@ input.form-control {
                 There is a $200,000 company exposure cap, with up to $5 million available.
               </p>
               <strong>Learn more here</strong>:
-              <a href="https://faq.business.nj.gov/en/articles/3835239">https://faq.business.nj.gov/en/articles/3835239</a>
+              <a href="https://faq.business.nj.gov/en/articles/3835239" target="_blank">https://faq.business.nj.gov/en/articles/3835239</a>
             </div>
             <div class="frelief">
               <h4>Financial relief on existing NJEDA obligations</h4>
@@ -717,13 +768,36 @@ input.form-control {
                 applications as soon as possible.
               </p>
               <strong>Learn more here</strong>:
-              <a href="https://disasterloan.sba.gov/ela">https://disasterloan.sba.gov/ela</a>
+              <a href="https://disasterloan.sba.gov/ela" target="_blank">https://disasterloan.sba.gov/ela</a>
             </div>
             <div class="cdfi">
               <h4>Loans from a CDFI</h4>
+              <p>
+                Community Development Financial Institutions (CDFIs) play a critical role in
+                providing access to financing tools and resources to businesses and individuals
+                that have difficulty accessing the traditional banking sector. Specifically,
+                the NJEDA has created
+                <a href="https://faq.business.nj.gov/en/articles/3835240" target="_blank">two programs</a>,
+                the <strong>CDFI Emergency Assistance Grant Program</strong>
+                and the <strong>CDFI Loan Loss Reserve Fund</strong> to help local CDFI’s scale their lending
+                to micro and small businesses, especially in communities and business segments
+                that are traditionally underserved.
+              </p>
+              <p>
+                You can reach out directly to a CDFI to see if you would be eligible for any
+                of their State-supported and non-State supported financing programs.  Click the
+                link above to see a list of New Jersey-based CDFIs that focus on micro and small
+                business financing.
+              </p>
             </div>
             <div class="bank">
               <h4>Financing from a private bank</h4>
+              <p>
+                Often one of the most reliable sources of financing for micro, small, and medium-sized
+                businesses is their traditional business banking partner.  Many banks in New Jersey work
+                with the NJEDA to provide low cost financing to micro, small, and medium-sized enterprises.
+                You can contact your local banking branch for more information.
+              </p>
             </div>
 
             <br/><br/>
@@ -749,16 +823,26 @@ input.form-control {
             </button>
           </div>
           <div class="modal-body">
-            <p>If your business or non-profit is not registered to do business in New Jersey,
-            or is an ineligible business type, NJEDA cannot assist.</p>
-            <p>
-              Consider these three sources of private financing:
-              <ul>
-                <li>Federal loans from the Small Business Administration</li>
-                <li>Loans from a CDFI</li>
-                <li>Financing from a private bank</li>
-              </ul>
+            <p>The State of New Jersey COVID-19 Business Support Eligibility Wizard is
+              designed to help organizations registered in New Jersey identify emergency
+              assistance programs for which they are eligible.
             </p>
+            <p>
+              If your business or non-profit is not registered to do business in New Jersey,
+              you are not eligible for NJEDA emergency assistance programs, however, please
+              consider seeking support from the following entities:
+            </p>
+            <ul>
+              <li>Your state’s economic development agency</li>
+              <li>Your local county or municipality’s economic development agency</li>
+              <li>A private bank that may have support programs that are offered in
+                partnership with economic development entities in your geography</li>
+              <li>Your local Community Development Financial Institution (CDFI)</li>
+              <li>The federal Small Business Administration’s Economic Injury Disaster
+                Loan (EIDL)-
+                <a href="https://disasterloan.sba.gov/ela/" target="_blank">https://disasterloan.sba.gov/ela/</a>
+              </li>
+            </ul>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-primary" onclick="window.location.reload()">Start over</button>
