@@ -237,7 +237,7 @@ input.form-control {
                 For-profit
               </button>
               <button class="btn btn-dark">
-                Non-profit
+                Not-for-profit
               </button>
             </div>
 
@@ -336,28 +336,30 @@ input.form-control {
               </button>
             </div>
 
-            <div id="q13" class="question">
-              <span class="answered">‣</span>
-              <p>
-                Is your organization classified in one of the following industries?
-                <ul>
-                  <li>Technology</li>
-                  <li>Life Sciences</li>
-                  <li>Clean Energy</li>
-                  <li>Offshore wind</li>
-                  <li>Advanced transportation and logistics (does not include traditional logistics such as trucking, wholesale, or warehousing)</li>
-                  <li>Advanced manufacturing</li>
-                  <li>Finance and professional services</li>
-                  <li>Non-retail food and beverage (does not include restaurants, grocery stores, catering companies or other prepared or unprepared retail food outlets)</li>
-                  <li>Film and digital media</li>
-                </ul>
-              </p>
-              <button class="btn btn-primary">
-                Yes
-              </button>
-              <button class="btn btn-dark">
-                None of the above
-              </button>
+            <div class="for-profit">
+              <div id="q13" class="question">
+                <span class="answered">‣</span>
+                <p>
+                  Is your organization classified in one of the following industries?
+                  <ul>
+                    <li>Technology</li>
+                    <li>Life Sciences</li>
+                    <li>Clean Energy</li>
+                    <li>Offshore wind</li>
+                    <li>Advanced transportation and logistics (does not include traditional logistics such as trucking, wholesale, or warehousing)</li>
+                    <li>Advanced manufacturing</li>
+                    <li>Finance and professional services</li>
+                    <li>Non-retail food and beverage (does not include restaurants, grocery stores, catering companies or other prepared or unprepared retail food outlets)</li>
+                    <li>Film and digital media</li>
+                  </ul>
+                </p>
+                <button class="btn btn-primary">
+                  Yes
+                </button>
+                <button class="btn btn-dark">
+                  None of the above
+                </button>
+              </div>
             </div>
 
             <h3>Business Size</h3>
@@ -440,21 +442,23 @@ input.form-control {
               </button>
             </div>
 
-            <div id="q10" class="question">
-              <span class="answered">‣</span>
-              <p>
-                Please estimate your business' 12-month trailing revenue as of March 9, 2020?
-              </p>
-              <div class="form-group">
-                <small class="form-text text-muted">Examples: $50000; $3,000,000</small>
-                <input type="text" class="input form-control" name="12mo_revenue"/>
+            <div class="entrepreneur">
+              <div id="q10" class="question">
+                <span class="answered">‣</span>
+                <p>
+                  Please estimate your business' 12-month trailing revenue as of March 9, 2020?
+                </p>
+                <div class="form-group">
+                  <small class="form-text text-muted">Examples: $50000; $3,000,000</small>
+                  <input type="text" class="input form-control" name="12mo_revenue"/>
+                </div>
+                <button class="btn btn-primary">
+                  Enter
+                </button>
+                <button class="btn btn-info not-sure">
+                  Skip
+                </button>
               </div>
-              <button class="btn btn-primary">
-                Enter
-              </button>
-              <button class="btn btn-info not-sure">
-                Skip
-              </button>
             </div>
 
             <h3>Loans and Guarantees</h3>

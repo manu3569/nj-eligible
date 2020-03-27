@@ -7,7 +7,7 @@ function parseNumber(num) {
 var nonprofit_q = 11,
     requirements = {
   eag: { // Emergency Assistance Grant
-    required_yes: [1, 2, 12, 16, 17, 20, 21, 22],
+    required_yes: [1, 2, 12, 16, 17, 20, 21, 22, 23, 42],
     required_no: [3, 14],
     eval: {
       8: function (fte) {
@@ -23,7 +23,7 @@ var nonprofit_q = 11,
     }
   },
   eawcl: { // Emergency Assistance 0% Working Capital
-    required_yes: [1, 2, 7, 16, 17, 20, 21, 22],
+    required_yes: [1, 2, 7, 16, 17, 20, 21, 22, 23, 42],
     required_no: [3, 14],
     eval: {
       9: function (revenue) {
@@ -42,7 +42,7 @@ var nonprofit_q = 11,
     }
   },
   guarantee: { // Emergency Assistance Guarantee
-    required_yes: [1, 2, 7, 16, 17, 20, 21, 22],
+    required_yes: [1, 2, 7, 16, 17, 20, 21, 22, 23, 42],
     required_no: [3, 14],
     eval: {
       9: function (revenue) {
@@ -61,7 +61,7 @@ var nonprofit_q = 11,
     }
   },
   egp: { // Entrepreneur Guarantee
-    required_yes: [1, 4, 5, 6, 13, 17],
+    required_yes: [1, 4, 5, 6, 13, 17, 23, 42],
     required_no: [3, 14],
     eval: {
       8: function (fte) {
@@ -75,13 +75,14 @@ var nonprofit_q = 11,
     }
   },
   eidl: { // SBA EIDL
-    required_yes: [6, 7],
+    required_yes: [6, 7, 42],
     required_no: [3, 15]
   },
   frelief: { // NJ EDA relief
-    required_yes: [0]
+    required_yes: [0, 42]
   },
   cdfi: {
+    required_yes: [42],
     eval: {
       8: function (fte) {
         fte = parseNumber(fte);
@@ -98,6 +99,7 @@ var nonprofit_q = 11,
     }
   },
   bank: {
+    required_yes: [42],
     eval: {
       8: function (fte) {
         fte = parseNumber(fte);
@@ -253,6 +255,8 @@ $(document).ready(function() {
         hardPass();
       } else if (sheet_original_index === 110) { // for-profit or non-profit
         $('.non-profit').hide();
+        $('.for-profit').show();
+        answers[11] = undefined;
       }
 
       $(q).find(".answered").css({ color: "#aaa" });
